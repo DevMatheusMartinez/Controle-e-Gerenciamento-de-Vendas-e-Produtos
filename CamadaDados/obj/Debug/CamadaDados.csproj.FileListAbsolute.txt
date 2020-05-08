@@ -1,0 +1,17 @@
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\CamadaDados.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\CamadaDados.pdb
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\obj\Debug\CamadaDados.csprojAssemblyReference.cache
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\obj\Debug\CamadaDados.csproj.CoreCompileInputs.cache
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\obj\Debug\CamadaDados.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\obj\Debug\CamadaDados.pdb
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\CamadaDados.dll.config
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\EntityFramework.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\System.Data.SQLite.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\EntityFramework.xml
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\System.Data.SQLite.xml
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaDados\obj\Debug\CamadaDados.csproj.CopyComplete

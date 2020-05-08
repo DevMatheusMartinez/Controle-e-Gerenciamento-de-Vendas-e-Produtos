@@ -1,0 +1,28 @@
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\obj\Debug\Controle e gerenciamento de vendas e produtos.csprojAssemblyReference.cache
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\obj\Debug\Controle_e_gerenciamento_de_vendas_e_produtos.Properties.Resources.resources
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\obj\Debug\Controle e gerenciamento de vendas e produtos.csproj.GenerateResource.cache
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\obj\Debug\Controle e gerenciamento de vendas e produtos.csproj.CoreCompileInputs.cache
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\Controle e gerenciamento de vendas e produtos.exe.config
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\Controle e gerenciamento de vendas e produtos.exe
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\Controle e gerenciamento de vendas e produtos.pdb
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\CamadaApresentacao.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\CamadaApresentacao.pdb
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\obj\Debug\Controle e gerenciamento de vendas e produtos.csproj.CopyComplete
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\obj\Debug\Controle e gerenciamento de vendas e produtos.exe
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\obj\Debug\Controle e gerenciamento de vendas e produtos.pdb
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\CamadaNegocios.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\CamadaDados.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\CamadaNegocios.pdb
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\CamadaDados.pdb
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\EntityFramework.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\System.Data.SQLite.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\CamadaApresentacao.dll.config
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\EntityFramework.xml
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\System.Data.SQLite.xml
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\CamadaNegocios.dll.config
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\Controle e gerenciamento de vendas e produtos\bin\Debug\CamadaDados.dll.config
