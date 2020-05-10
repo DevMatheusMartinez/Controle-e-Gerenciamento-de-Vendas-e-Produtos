@@ -20,7 +20,8 @@ namespace CamadaDados
             {
                 SQLiteConnection.CreateFile(nomebanco);
             }
-            SQLiteConnection conn = new SQLiteConnection(Cn);
+            SQLiteConnection conn = new SQLiteConnection();
+            conn.ConnectionString = Conexao.Cn;
             conn.Open();
 
             StringBuilder sql = new StringBuilder();
@@ -32,6 +33,7 @@ namespace CamadaDados
             sql.AppendLine("CREATE TABLE IF NOT EXISTS PRODUTO ([ID_PRODUTO] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,");
             sql.AppendLine("[NOME_PRODUTO] VARCHAR(70) NOT NULL,");
             sql.AppendLine("[CATEGORIA_PRODUTO] VARCHAR(70) NOT NULL,");
+            sql.AppendLine("[MARCA_PRODUTO] VARCHAR(70) NOT NULL,");
             sql.AppendLine("[PRECO_PRODUTO] REAL NOT NULL,");
             sql.AppendLine("[ESTOQUE_PRODUTO] INT);");
 

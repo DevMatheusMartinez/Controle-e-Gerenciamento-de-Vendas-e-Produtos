@@ -74,6 +74,12 @@
     <Compile Include="formCadastrarProduto.Designer.cs">
       <DependentUpon>formCadastrarProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="formEditarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEditarProduto.Designer.cs">
+      <DependentUpon>formEditarProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLoginAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     </Compile>
     <Compile Include="formMensagem.Designer.cs">
       <DependentUpon>formMensagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formMensagemDeletado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMensagemDeletado.Designer.cs">
+      <DependentUpon>formMensagemDeletado.cs</DependentUpon>
     </Compile>
     <Compile Include="formPrincipal.cs">
       <SubType>Form</SubType>
@@ -119,11 +131,17 @@
     <EmbeddedResource Include="formCadastrarProduto.resx">
       <DependentUpon>formCadastrarProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formEditarProduto.resx">
+      <DependentUpon>formEditarProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formLoginAdministrador.resx">
       <DependentUpon>formLoginAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formMensagem.resx">
       <DependentUpon>formMensagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMensagemDeletado.resx">
+      <DependentUpon>formMensagemDeletado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formPrincipal.resx">
       <DependentUpon>formPrincipal.cs</DependentUpon>

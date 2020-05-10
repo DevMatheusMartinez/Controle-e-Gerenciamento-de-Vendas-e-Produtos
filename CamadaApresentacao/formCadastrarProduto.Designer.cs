@@ -138,6 +138,7 @@
             this.comboCategoria.Name = "comboCategoria";
             this.comboCategoria.Size = new System.Drawing.Size(262, 21);
             this.comboCategoria.TabIndex = 21;
+            this.comboCategoria.SelectedIndexChanged += new System.EventHandler(this.comboCategoria_SelectedIndexChanged);
             // 
             // comboMarca
             // 
@@ -146,6 +147,7 @@
             this.comboMarca.Name = "comboMarca";
             this.comboMarca.Size = new System.Drawing.Size(262, 21);
             this.comboMarca.TabIndex = 24;
+            this.comboMarca.SelectedIndexChanged += new System.EventHandler(this.comboMarca_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -277,9 +279,9 @@
             this.lbl_mensagem.ForeColor = System.Drawing.Color.White;
             this.lbl_mensagem.Location = new System.Drawing.Point(75, 190);
             this.lbl_mensagem.Name = "lbl_mensagem";
-            this.lbl_mensagem.Size = new System.Drawing.Size(287, 29);
+            this.lbl_mensagem.Size = new System.Drawing.Size(127, 29);
             this.lbl_mensagem.TabIndex = 39;
-            this.lbl_mensagem.Text = "Digite o nome do produto";
+            this.lbl_mensagem.Text = "mensagem";
             this.lbl_mensagem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_mensagem.Visible = false;
             // 
@@ -334,6 +336,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_usuario);
             this.Controls.Add(this.lbl_titulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "formCadastrarProduto";
             this.Text = "Cadastrar Produto";
             this.Load += new System.EventHandler(this.formCadastrarProduto_Load);
