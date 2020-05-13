@@ -273,7 +273,7 @@ namespace CamadaDados
 
         public string [] carregarDadosProduto(DProduto produto)
         {
-            string[] dados = new string[5];
+            string[] dados = new string[6];
             SQLiteConnection sqlCon = new SQLiteConnection();
             try
             {
@@ -296,11 +296,12 @@ namespace CamadaDados
 
                 while (leitor.Read())
                 {
-                    dados[0] = (leitor["NOME_PRODUTO"].ToString());
-                    dados[1] = (leitor["CATEGORIA_PRODUTO"].ToString());
-                    dados[2] = (leitor["MARCA_PRODUTO"].ToString());
-                    dados[3] = (leitor["PRECO_PRODUTO"].ToString());
-                    dados[4] = (leitor["ESTOQUE_PRODUTO"].ToString());
+                    dados[0] = (leitor["ID_PRODUTO"].ToString());
+                    dados[1] = (leitor["NOME_PRODUTO"].ToString());
+                    dados[2] = (leitor["CATEGORIA_PRODUTO"].ToString());
+                    dados[3] = (leitor["MARCA_PRODUTO"].ToString());
+                    dados[4] = (leitor["PRECO_PRODUTO"].ToString());
+                    dados[5] = (leitor["ESTOQUE_PRODUTO"].ToString());
                 }
             }
             catch (Exception ex)
@@ -332,6 +333,31 @@ namespace CamadaDados
                 sqldata.Fill(DtResultado);
             }
             catch(Exception ex)
+            {
+                DtResultado = null;
+            }
+
+            return DtResultado;
+        }
+
+        public DataTable mostrarCaixa()
+        {
+            DataTable DtResultado = new DataTable("PRODUTO");
+            SQLiteConnection sqlcon = new SQLiteConnection();
+
+            try
+            {
+                sqlcon.ConnectionString = Conexao.Cn;
+                sqlcon.Open();
+
+                SQLiteCommand sqlcmd = new SQLiteCommand();
+                sqlcmd.Connection = sqlcon;
+                sqlcmd.CommandText = "SELECT ID_PRODUTO, NOME_PRODUTO, CATEGORIA_PRODUTO, MARCA_PRODUTO, PRECO_PRODUTO FROM PRODUTO";
+                sqlcmd.CommandType = CommandType.Text;
+                SQLiteDataAdapter sqldata = new SQLiteDataAdapter(sqlcmd);
+                sqldata.Fill(DtResultado);
+            }
+            catch (Exception ex)
             {
                 DtResultado = null;
             }

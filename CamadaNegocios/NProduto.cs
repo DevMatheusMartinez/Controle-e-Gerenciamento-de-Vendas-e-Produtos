@@ -53,6 +53,11 @@ namespace CamadaNegocios
             return new DProduto().mostrar();
         }
 
+        public static DataTable MostrarCaixa()
+        {
+            return new DProduto().mostrarCaixa();
+        }
+
         public static void FiltrarDados(TextBox txt, DataGridView datagrid)
         {
             DProduto Produto = new DProduto();

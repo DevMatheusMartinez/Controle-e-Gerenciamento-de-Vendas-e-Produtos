@@ -32,3 +32,4 @@ C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_
 C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formCadastrarMarcaCategoria.resources
 C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formEditarProduto.resources
 C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formMensagemDeletado.resources
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formCaixa.resources

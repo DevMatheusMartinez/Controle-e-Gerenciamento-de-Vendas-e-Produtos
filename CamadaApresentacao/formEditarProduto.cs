@@ -31,13 +31,13 @@ namespace CamadaApresentacao
 
             idproduto = id;
 
-            string[] dados = new string[5];
+            string[] dados = new string[6];
             dados = NProduto.CarregarDadosProduto(id);
-            txt_nome.Text = dados[0];
-            comboCategoria.Text = dados[1];
-            comboMarca.Text = dados[2];
-            txt_preco.Text = dados[3];
-            quantidade_num.Value = Convert.ToDecimal(dados[4]);
+            txt_nome.Text = dados[1];
+            comboCategoria.Text = dados[2];
+            comboMarca.Text = dados[3];
+            txt_preco.Text = dados[4];
+            quantidade_num.Value = Convert.ToDecimal(dados[5]);
 
             criarModoMoeda();
         }

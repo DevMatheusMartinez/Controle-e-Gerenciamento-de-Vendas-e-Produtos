@@ -93,5 +93,10 @@ namespace CamadaApresentacao
         {
             AbrirFormInPanel(new formProduto());
         }
+
+        private void btn_caixa_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new formCaixa());
+        }
     }
 }
