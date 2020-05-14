@@ -365,7 +365,7 @@ namespace CamadaDados
             return DtResultado;
         }
 
-        public void filtrarDados(TextBox txt, DataGridView datagrid)
+        public void filtrarDados(TextBox txt, DataGridView datagrid, string aba)
         {
             SQLiteConnection  sqlCon = new SQLiteConnection();
             try
@@ -375,7 +375,15 @@ namespace CamadaDados
 
                 SQLiteCommand sqlCmd = new SQLiteCommand();
                 sqlCmd.Connection = sqlCon;
-                sqlCmd.CommandText = "SELECT * FROM PRODUTO WHERE NOME_PRODUTO LIKE '%" + txt.Text + "%'";
+                if(aba == "P")
+                {
+                    sqlCmd.CommandText = "SELECT * FROM PRODUTO WHERE NOME_PRODUTO LIKE '%" + txt.Text + "%'";
+                }
+                else
+                {
+                    sqlCmd.CommandText = "SELECT ID_PRODUTO, NOME_PRODUTO, CATEGORIA_PRODUTO, MARCA_PRODUTO, PRECO_PRODUTO FROM PRODUTO WHERE NOME_PRODUTO LIKE '%" +txt.Text+ "%'";
+                }
+                
                 sqlCmd.CommandType = CommandType.Text;
 
                 SQLiteDataAdapter data = new SQLiteDataAdapter(sqlCmd);

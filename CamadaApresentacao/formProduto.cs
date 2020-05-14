@@ -121,7 +121,7 @@ namespace CamadaApresentacao
         {
             if(txt_buscar.Text != "Buscar...")
             {
-                NProduto.FiltrarDados(txt_buscar, lista_produtos);
+                NProduto.FiltrarDados(txt_buscar, lista_produtos, "P");
             }
         }
     }

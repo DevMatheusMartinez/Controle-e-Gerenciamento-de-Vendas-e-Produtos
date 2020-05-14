@@ -58,10 +58,10 @@ namespace CamadaNegocios
             return new DProduto().mostrarCaixa();
         }
 
-        public static void FiltrarDados(TextBox txt, DataGridView datagrid)
+        public static void FiltrarDados(TextBox txt, DataGridView datagrid, string aba)
         {
             DProduto Produto = new DProduto();
-            Produto.filtrarDados(txt, datagrid);
+            Produto.filtrarDados(txt, datagrid, aba);
         }
     }
 }

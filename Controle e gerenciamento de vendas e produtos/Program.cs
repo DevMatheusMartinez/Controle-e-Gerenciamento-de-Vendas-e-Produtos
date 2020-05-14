@@ -17,7 +17,7 @@ namespace Controle_e_gerenciamento_de_vendas_e_produtos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formPrincipal());
+            Application.Run(new formCadastroAdministrador());
         }
     }
 }

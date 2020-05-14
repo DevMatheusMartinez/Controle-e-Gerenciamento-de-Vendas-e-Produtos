@@ -23,12 +23,22 @@ namespace CamadaNegocios
             var resultado = lista.Sum(x => Convert.ToDecimal(x));
             return resultado;
         }
+
+        public static int SomarQuantidadeTotal(List<int> lista)
+        {
+            var resultado = lista.Sum(x => Convert.ToInt32(x));
+            return resultado;
+        }
         
         public static void SubtrairValorTotal(List<decimal> lista, int index)
         {
             lista.RemoveAt(index);
         }
 
+        public static void SubtrairQuantidadeTotal(List<int> lista, int index)
+        {
+            lista.RemoveAt(index);
+        }
 
     }
 }

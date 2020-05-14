@@ -16,8 +16,9 @@ namespace CamadaApresentacao
     public partial class formCaixa : Form
     {
         decimal precototallista;
-        int idproduto, itemproduto;
+        int idproduto, itemproduto, quantidadetotallista;
         List<decimal> precolista = new List<decimal>();
+        List<int> quantidadelista = new List<int>();
         public formCaixa()
         {
             InitializeComponent();
@@ -104,12 +105,19 @@ namespace CamadaApresentacao
 
             this.lista_carrinho.Rows.Insert(0, codigo, nome, categoria, marca, quantidade, precototal) ;
             precolista.Insert(0, precototal);
+            quantidadelista.Insert(0, Convert.ToInt32(quantidade));
 
             precototallista = NOperacao.SomarValorTotal(precolista);
+            quantidadetotallista = NOperacao.SomarQuantidadeTotal(quantidadelista);
 
             lbl_total.Text = "Total: " + precototallista.ToString("C2", CultureInfo.CurrentCulture);
+            lbl_valor_total_da_venda.Text = precototallista.ToString("C2", CultureInfo.CurrentCulture).ToString();
+            lbl_itens.Text = "Itens: " + precolista.Count;
+            lbl_quantidade_itens.Text = "Quantidade: " + quantidadetotallista;
 
             numerarGrid(lista_carrinho);
+
+            
         }
 
         private void lista_carrinho_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -122,10 +130,39 @@ namespace CamadaApresentacao
             if (itemproduto >= 0 && itemproduto < precolista.Count)
             {
                 NOperacao.SubtrairValorTotal(precolista, itemproduto);
+                NOperacao.SubtrairQuantidadeTotal(quantidadelista, itemproduto);
                 precototallista = NOperacao.SomarValorTotal(precolista);
+                quantidadetotallista = NOperacao.SomarQuantidadeTotal(quantidadelista);
+                lbl_itens.Text = "Itens: " + precolista.Count;
+                lbl_quantidade_itens.Text = "Quantidade: " + quantidadetotallista;
                 lbl_total.Text = "Valor Total: " + precototallista.ToString("C2", CultureInfo.CurrentCulture);
+                lbl_valor_total_da_venda.Text = precototallista.ToString("C2", CultureInfo.CurrentCulture).ToString();
                 this.lista_carrinho.Rows.RemoveAt(itemproduto);
                 numerarGrid(lista_carrinho);
+            }
+        }
+
+        private void txt_buscar_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_buscar.Text != "Buscar...")
+            {
+                NProduto.FiltrarDados(txt_buscar, lista_produtos, "C");
+            }
+        }
+
+        private void txt_buscar_Click(object sender, EventArgs e)
+        {
+            if (txt_buscar.Text == "Buscar...")
+            {
+                txt_buscar.Text = "";
+            }
+        }
+
+        private void txt_buscar_Leave(object sender, EventArgs e)
+        {
+            if (txt_buscar.Text == "")
+            {
+                txt_buscar.Text = "Buscar...";
             }
         }
 
