@@ -81,6 +81,7 @@
             this.txt_confirmar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_confirmar.Location = new System.Drawing.Point(522, 353);
             this.txt_confirmar.Name = "txt_confirmar";
+            this.txt_confirmar.PasswordChar = '*';
             this.txt_confirmar.Size = new System.Drawing.Size(387, 20);
             this.txt_confirmar.TabIndex = 20;
             this.txt_confirmar.Click += new System.EventHandler(this.txt_confirmar_Click);
@@ -110,6 +111,7 @@
             this.txt_senha.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_senha.Location = new System.Drawing.Point(522, 286);
             this.txt_senha.Name = "txt_senha";
+            this.txt_senha.PasswordChar = '*';
             this.txt_senha.Size = new System.Drawing.Size(387, 20);
             this.txt_senha.TabIndex = 17;
             this.txt_senha.Click += new System.EventHandler(this.txt_senha_Click);

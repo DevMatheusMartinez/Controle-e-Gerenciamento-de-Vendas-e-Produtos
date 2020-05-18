@@ -166,6 +166,13 @@ namespace CamadaApresentacao
             }
         }
 
+        private void btn_novo_Click(object sender, EventArgs e)
+        {
+            formCadastrarProduto form = new formCadastrarProduto();
+            form.ShowDialog();
+            Mostrar();
+        }
+
         private void lista_carrinho_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             itemproduto = Convert.ToInt32(lista_carrinho.CurrentCell.RowIndex);
