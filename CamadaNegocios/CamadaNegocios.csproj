@@ -64,9 +64,11 @@
     <Compile Include="ControleLogin.cs" />
     <Compile Include="NAdministrador.cs" />
     <Compile Include="NCategoria.cs" />
+    <Compile Include="NCliente.cs" />
     <Compile Include="NMarca.cs" />
     <Compile Include="NOperacao.cs" />
     <Compile Include="NProduto.cs" />
+    <Compile Include="NTelefone.cs" />
     <Compile Include="ProdutoCaixa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

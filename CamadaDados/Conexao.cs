@@ -43,6 +43,31 @@ namespace CamadaDados
             sql.AppendLine("CREATE TABLE IF NOT EXISTS MARCA ([ID_MARCA] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,");
             sql.AppendLine("[NOME_MARCA] VARCHAR(45) NOT NULL);");
 
+            sql.AppendLine("CREATE TABLE IF NOT EXISTS CLIENTE ([ID_CLIENTE] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,");
+            sql.AppendLine("[NOME_CLIENTE] VARCHAR(80) NOT NULL,");
+            sql.AppendLine("[CPF_CLIENTE] VARCHAR(25) NOT NULL,");
+            sql.AppendLine("[ENDERECO_CLIENTE] VARCHAR(70),");
+            sql.AppendLine("[EMAIL_CLIENTE] VARCHAR(70));");
+
+            sql.AppendLine("CREATE TABLE IF NOT EXISTS TELEFONE ([ID_TELEFONE] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,");
+            sql.AppendLine("[TELEFONE] VARCHAR(80),");
+            sql.AppendLine("[COD_CLIENTE_TELEFONE] INT NOT NULL,");
+            sql.AppendLine("FOREIGN KEY(COD_CLIENTE_TELEFONE) REFERENCES CLIENTE(ID_CLIENTE));");
+
+            sql.AppendLine("CREATE TABLE IF NOT EXISTS FICHA ([ID_FICHA] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,");
+            sql.AppendLine("[IDENTIFICACAO_FICHA] VARCHAR(80) NOT NULL,");
+            sql.AppendLine("[PRECO_FICHA] REAL NOT NULL,");
+            sql.AppendLine("[DATA_COMPRA_FICHA] TEXT NOT NULL,");
+            sql.AppendLine("[DATA_VENCIMENTO_FICHA] TEXT NOT NULL,");
+            sql.AppendLine("[COD_CLIENTE_FICHA] INTEGER NOT NULL,");
+            sql.AppendLine("FOREIGN KEY(COD_CLIENTE_FICHA) REFERENCES CLIENTE(ID_CLIENTE));");
+
+            sql.AppendLine("CREATE TABLE IF NOT EXISTS PRODUTOS_COMPRADOS ([ID_PRODUTO_COMPRADO] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,");
+            sql.AppendLine("[NOME_PRODUTO_COMPRADO] VARCHAR(80) NOT NULL,");
+            sql.AppendLine("[QUANTIDADE_PRODUTO_COMPRADO] INTEGER NOT NULL,");
+            sql.AppendLine("[COD_FICHA_PRODUTO_COMPRADO] INTEGER NOT NULL,");
+            sql.AppendLine("FOREIGN KEY(COD_FICHA_PRODUTO_COMPRADO) REFERENCES CLIENTE(ID_FICHA));");
+
             SQLiteCommand cmd = new SQLiteCommand(sql.ToString(), conn);
 
             try

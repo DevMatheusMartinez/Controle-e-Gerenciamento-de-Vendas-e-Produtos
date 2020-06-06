@@ -64,8 +64,12 @@
     <Compile Include="Conexao.cs" />
     <Compile Include="DAdministrador.cs" />
     <Compile Include="DCategoria.cs" />
+    <Compile Include="DCliente.cs" />
+    <Compile Include="DFicha.cs" />
     <Compile Include="DMarca.cs" />
     <Compile Include="DProduto.cs" />
+    <Compile Include="DProduto_Comprado.cs" />
+    <Compile Include="DTelefone.cs" />
     <Compile Include="LoginDaoComandos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

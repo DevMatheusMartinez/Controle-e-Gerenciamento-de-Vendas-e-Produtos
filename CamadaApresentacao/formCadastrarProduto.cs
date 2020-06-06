@@ -113,7 +113,7 @@ namespace CamadaApresentacao
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
-            if(txt_nome.Text == "")
+            if (txt_nome.Text == "")
             {
                 lbl_mensagem_nome.Visible = true;
                 sucesso = false;

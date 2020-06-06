@@ -33,7 +33,7 @@
             this.menu_vertical = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_cliente = new System.Windows.Forms.Button();
             this.btn_produto = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -69,7 +69,7 @@
             this.menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.menu_vertical.Controls.Add(this.button5);
             this.menu_vertical.Controls.Add(this.button4);
-            this.menu_vertical.Controls.Add(this.button3);
+            this.menu_vertical.Controls.Add(this.btn_cliente);
             this.menu_vertical.Controls.Add(this.btn_produto);
             this.menu_vertical.Controls.Add(this.pictureBox2);
             this.menu_vertical.Controls.Add(this.pictureBox1);
@@ -112,21 +112,22 @@
             this.button4.Text = "      Análise";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_cliente
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 293);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(228, 95);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "      Historico";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_cliente.FlatAppearance.BorderSize = 0;
+            this.btn_cliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.btn_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cliente.ForeColor = System.Drawing.Color.White;
+            this.btn_cliente.Image = ((System.Drawing.Image)(resources.GetObject("btn_cliente.Image")));
+            this.btn_cliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_cliente.Location = new System.Drawing.Point(0, 293);
+            this.btn_cliente.Name = "btn_cliente";
+            this.btn_cliente.Size = new System.Drawing.Size(228, 95);
+            this.btn_cliente.TabIndex = 8;
+            this.btn_cliente.Text = "      Historico";
+            this.btn_cliente.UseVisualStyleBackColor = true;
+            this.btn_cliente.Click += new System.EventHandler(this.btn_cliente_Click);
             // 
             // btn_produto
             // 
@@ -313,7 +314,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_cliente;
         private System.Windows.Forms.Button btn_produto;
     }
 }

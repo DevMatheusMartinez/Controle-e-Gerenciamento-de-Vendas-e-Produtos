@@ -33,7 +33,7 @@ namespace CamadaApresentacao
             Conexao.criarBanco();
             if (ValidarDados.conferirSenhas(txt_senha.Text, txt_confirmar.Text))
             {
-                resp = NAdministrador.InserirAdministrador(ValidarDados.ValidarNome(txt_nome.Text), txt_login.Text, txt_senha.Text);
+                resp = NAdministrador.InserirAdministrador(ValidarDados.arrumarTexto(txt_nome.Text), txt_login.Text, txt_senha.Text);
                 formMensagem form = new formMensagem();
                 form.ShowDialog();
                 Close();
