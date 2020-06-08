@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,13 +16,17 @@ namespace CamadaApresentacao
 {
     public partial class formCaixa : Form
     {
+        private formPrincipal pai = null;
         decimal precototallista;
         int idproduto, itemproduto, quantidadetotallista;
         List<decimal> precolista = new List<decimal>();
         List<int> quantidadelista = new List<int>();
-        public formCaixa()
+        private Timer tmr = new Timer();
+        string[] dados = new string[5];
+        public formCaixa(formPrincipal _pai)
         {
             InitializeComponent();
+            this.pai = _pai;
         }
 
         public void Mostrar()
@@ -39,6 +44,14 @@ namespace CamadaApresentacao
         private void formCaixa_Load(object sender, EventArgs e)
         {
             Conexao.criarBanco();
+
+            txt_cpf.Enabled = false;
+            txt_data_pedido.Enabled = false;
+            txt_hora_pedido.Enabled = false;
+            txt_itens.Enabled = false;
+            txt_quantidade.Enabled = false;
+            txt_numerovenda.Enabled = false;
+
             lista_produtos.BorderStyle = BorderStyle.None;
             lista_produtos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             lista_produtos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -70,6 +83,32 @@ namespace CamadaApresentacao
             lista_carrinho.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             lista_carrinho.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 84, 84);
             lista_carrinho.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            NCliente.preencherCBCliente(comboCliente);
+            comboCliente.DropDownStyle = ComboBoxStyle.DropDown;
+            comboCliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboCliente.SelectedIndex = 1;
+
+            tmr.Interval = 1;
+            tmr.Enabled = true;
+            tmr.Tick += new EventHandler(timerdatahora_Tick);
+
+            DateTime data = DateTime.Today;
+            string datahora = Convert.ToString(data.AddDays(7));
+            string[] datavencimento = new string[2];
+            datavencimento = datahora.Split(' ');
+            txt_vencimento.Text = datavencimento[0];
+
+            if (NFicha.verificarFicha())
+            {
+                txt_numerovenda.Text = Convert.ToString(NFicha.CarregarUltimoIdFicha() + 1);
+            }
+            else
+            {
+                txt_numerovenda.Text = "1";
+            }
+            
 
             Mostrar();
 
@@ -115,9 +154,10 @@ namespace CamadaApresentacao
             lbl_itens.Text = "Itens: " + precolista.Count;
             lbl_quantidade_itens.Text = "Quantidade: " + quantidadetotallista;
 
-            numerarGrid(lista_carrinho);
+            txt_itens.Text = Convert.ToString(precolista.Count);
+            txt_quantidade.Text = Convert.ToString(quantidadetotallista);
 
-            
+            numerarGrid(lista_carrinho);
         }
 
         private void lista_carrinho_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -137,6 +177,9 @@ namespace CamadaApresentacao
                 lbl_quantidade_itens.Text = "Quantidade: " + quantidadetotallista;
                 lbl_total.Text = "Valor Total: " + precototallista.ToString("C2", CultureInfo.CurrentCulture);
                 lbl_valor_total_da_venda.Text = precototallista.ToString("C2", CultureInfo.CurrentCulture).ToString();
+                txt_itens.Text = Convert.ToString(precolista.Count);
+                txt_quantidade.Text = Convert.ToString(quantidadetotallista);
+
                 this.lista_carrinho.Rows.RemoveAt(itemproduto);
                 numerarGrid(lista_carrinho);
             }
@@ -171,6 +214,48 @@ namespace CamadaApresentacao
             formCadastrarProduto form = new formCadastrarProduto();
             form.ShowDialog();
             Mostrar();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboCliente_SelectedValueChanged(object sender, EventArgs e)
+        {
+            dados =  NCliente.CarregarDadosCliente(comboCliente.Text);
+            txt_cpf.Text = dados[2];
+        }
+
+        private void timerdatahora_Tick(object sender, EventArgs e)
+        {
+            string datapedido = Convert.ToString(DateTime.Today);
+            string[] datahora = new string[2];
+            datahora = datapedido.Split(' ');
+            txt_data_pedido.Text = datahora[0];
+            txt_hora_pedido.Text = DateTime.Now.ToString("HH:mm");
+        }
+
+        private void btn_salvar_Click(object sender, EventArgs e)
+        {
+            string resp = "";
+            resp = NFicha.InserirFicha("Ficha " + Convert.ToString(NFicha.CarregarUltimoIdFicha() + 1), precototallista, txt_data_pedido.Text, txt_vencimento.Text, Convert.ToInt32(dados[0]));
+            MessageBox.Show("Ficha salva com sucesso");
         }
 
         private void lista_carrinho_CellEnter(object sender, DataGridViewCellEventArgs e)

@@ -77,7 +77,7 @@
             this.menu_vertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.menu_vertical.Location = new System.Drawing.Point(0, 0);
             this.menu_vertical.Name = "menu_vertical";
-            this.menu_vertical.Size = new System.Drawing.Size(61, 931);
+            this.menu_vertical.Size = new System.Drawing.Size(61, 1100);
             this.menu_vertical.TabIndex = 1;
             // 
             // button5
@@ -268,14 +268,14 @@
             this.pn_conteudo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_conteudo.Location = new System.Drawing.Point(61, 50);
             this.pn_conteudo.Name = "pn_conteudo";
-            this.pn_conteudo.Size = new System.Drawing.Size(1523, 881);
+            this.pn_conteudo.Size = new System.Drawing.Size(1523, 1050);
             this.pn_conteudo.TabIndex = 3;
             // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1584, 931);
+            this.ClientSize = new System.Drawing.Size(1584, 1100);
             this.Controls.Add(this.pn_conteudo);
             this.Controls.Add(this.titulo);
             this.Controls.Add(this.menu_vertical);

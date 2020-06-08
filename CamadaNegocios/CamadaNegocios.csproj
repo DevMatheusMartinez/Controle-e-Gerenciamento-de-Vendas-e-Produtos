@@ -65,6 +65,7 @@
     <Compile Include="NAdministrador.cs" />
     <Compile Include="NCategoria.cs" />
     <Compile Include="NCliente.cs" />
+    <Compile Include="NFicha.cs" />
     <Compile Include="NMarca.cs" />
     <Compile Include="NOperacao.cs" />
     <Compile Include="NProduto.cs" />

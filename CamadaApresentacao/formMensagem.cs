@@ -23,6 +23,7 @@ namespace CamadaApresentacao
             lbl_mensagem.Text = "Criando Area de trabalho...\b espera alguns segundos";
             Conexao.inserirDadosPadraoMarca();
             Conexao.inserirDadosPadraoCategoria();
+            Conexao.inserirDadosPadraoCliente();
             Close();
         }
 

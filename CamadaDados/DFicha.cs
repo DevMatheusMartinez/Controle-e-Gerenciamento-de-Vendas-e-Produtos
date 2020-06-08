@@ -167,5 +167,67 @@ namespace CamadaDados
             }
             return resp;
         }
+
+        public bool verificarFicha()
+        {
+            bool resp = false;
+            SQLiteConnection sqlCon = new SQLiteConnection();
+            try
+            {
+                sqlCon.ConnectionString = Conexao.Cn;
+                sqlCon.Open();
+
+                SQLiteCommand sqlCmd = new SQLiteCommand();
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = "SELECT COUNT(*) FROM FICHA";
+                sqlCmd.CommandType = CommandType.Text;
+
+                if(Convert.ToInt32(sqlCmd.ExecuteScalar()) > 0)
+                {
+                    resp = true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return resp;
+        }
+
+        public int carregarUltimoIdFicha()
+        {
+            int codficha = new int();
+            SQLiteConnection sqlCon = new SQLiteConnection();
+            try
+            {
+                sqlCon.ConnectionString = Conexao.Cn;
+                sqlCon.Open();
+
+                SQLiteCommand sqlCmd = new SQLiteCommand();
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = "SELECT * FROM FICHA WHERE ID_FICHA = (SELECT MAX(ID_FICHA) FROM FICHA)";
+                sqlCmd.CommandType = CommandType.Text;
+
+                SQLiteDataReader leitor = sqlCmd.ExecuteReader();
+                while (leitor.Read())
+                {
+                    codficha = Convert.ToInt32(leitor["ID_FICHA"]);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return codficha;
+        }
     }
 }

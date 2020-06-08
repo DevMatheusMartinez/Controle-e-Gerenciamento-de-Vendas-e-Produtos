@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CamadaNegocios
 {
@@ -29,6 +30,19 @@ namespace CamadaNegocios
         public static DataTable Mostrar()
         {
             return new DCliente().mostrar();
+        }
+
+        public static void preencherCBCliente(ComboBox combo)
+        {
+            DCliente cliente = new DCliente();
+            cliente.preencherCBCliente(combo);
+        }
+
+        public static string[] CarregarDadosCliente(string nome)
+        {
+            DCliente Cliente = new DCliente();
+            Cliente.NomeCliente = nome;
+            return Cliente.carregarDadosCliente(Cliente);
         }
     }
 }

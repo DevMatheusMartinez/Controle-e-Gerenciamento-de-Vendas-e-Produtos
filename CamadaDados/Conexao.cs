@@ -138,6 +138,33 @@ namespace CamadaDados
             }
         }
 
+        public static void inserirDadosPadraoCliente()
+        {
+            string resp = "";
+            SQLiteConnection sqlCon = new SQLiteConnection();
+
+            try
+            {
+                sqlCon.ConnectionString = Conexao.Cn;
+                sqlCon.Open();
+
+                SQLiteCommand sqlCmd = new SQLiteCommand();
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = "INSERT INTO CLIENTE(NOME_CLIENTE) SELECT 'Selecionar Cliente' WHERE NOT EXISTS (SELECT 1 FROM CLIENTE WHERE NOME_CLIENTE = 'Selecionar Cliente');";
+                sqlCmd.CommandType = CommandType.Text;
+
+                resp = sqlCmd.ExecuteNonQuery() == 1 ? "OK" : "Registro não foi inserido";
+            }
+            catch (Exception e)
+            {
+                resp = e.Message;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+        }
+
         public static string Cn = "Data Source =Banco.db";
     }
 }

@@ -322,5 +322,82 @@ namespace CamadaDados
             }
             return codcliente;
         }
+
+        public void preencherCBCliente(ComboBox combo)
+        {
+            SQLiteConnection sqlcon = new SQLiteConnection();
+
+            try
+            {
+                sqlcon.ConnectionString = Conexao.Cn;
+                sqlcon.Open();
+
+                SQLiteCommand cmd = new SQLiteCommand();
+                cmd.Connection = sqlcon;
+                cmd.CommandText = "SELECT NOME_CLIENTE FROM CLIENTE ORDER BY ID_CLIENTE";
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(reader);
+                DataRow row = table.NewRow();
+                row["NOME_CLIENTE"] = "";
+                table.Rows.InsertAt(row, 0);
+
+                combo.DataSource = table;
+                combo.ValueMember = "NOME_CLIENTE";
+
+                reader.Close();
+                reader.Dispose();
+            }
+            catch (Exception e)
+            {
+                string resp = e.Message;
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open) { sqlcon.Close(); }
+            }
+        }
+
+        public string[] carregarDadosCliente(DCliente cliente)
+        {
+            string[] dados = new string[5];
+            SQLiteConnection sqlCon = new SQLiteConnection();
+            try
+            {
+                sqlCon.ConnectionString = Conexao.Cn;
+                sqlCon.Open();
+
+                SQLiteCommand sqlCmd = new SQLiteCommand();
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = "SELECT * FROM CLIENTE WHERE NOME_CLIENTE = @NOME_CLIENTE";
+                sqlCmd.CommandType = CommandType.Text;
+
+                SQLiteParameter parNomeCliente = new SQLiteParameter();
+                parNomeCliente.ParameterName = "@NOME_CLIENTE";
+                parNomeCliente.Value = cliente.NomeCliente;
+                sqlCmd.Parameters.Add(parNomeCliente);
+
+
+                SQLiteDataReader leitor = sqlCmd.ExecuteReader();
+
+                while (leitor.Read())
+                {
+                    dados[0] = (leitor["ID_CLIENTE"].ToString());
+                    dados[1] = (leitor["NOME_CLIENTE"].ToString());
+                    dados[2] = (leitor["CPF_CLIENTE"].ToString());
+                    dados[3] = (leitor["ENDERECO_CLIENTE"].ToString());
+                    dados[4] = (leitor["EMAIL_PRODUTO"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return dados;
+        }
     }
 }

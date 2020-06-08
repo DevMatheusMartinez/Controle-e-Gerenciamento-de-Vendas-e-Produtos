@@ -75,7 +75,7 @@ namespace CamadaApresentacao
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         
-        private void AbrirFormInPanel(object FormAtual)
+        public void AbrirFormInPanel(object FormAtual)
         {
             if(this.pn_conteudo.Controls.Count > 0)
             {
@@ -96,7 +96,7 @@ namespace CamadaApresentacao
 
         private void btn_caixa_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new formCaixa());
+            AbrirFormInPanel(new formCaixa(this));
         }
 
         private void btn_cliente_Click(object sender, EventArgs e)
