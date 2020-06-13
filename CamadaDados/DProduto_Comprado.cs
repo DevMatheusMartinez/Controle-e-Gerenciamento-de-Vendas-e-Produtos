@@ -11,18 +11,18 @@ namespace CamadaDados
     public class DProduto_Comprado
     {
         private int _idprodutocomprado;
-        private string _nomeprodutocomprado;
         private int _quantidadeprodutocomprado;
         private int _codfichaprodutocomprado;
+        private int _codprodutocomprado;
 
         public DProduto_Comprado() { }
 
-        public DProduto_Comprado(int idprodutocomprado, string nomeprodutocomprado, int quantidadeprodutocomprado, int codfichaprodutocomprado)
+        public DProduto_Comprado(int idprodutocomprado, int quantidadeprodutocomprado, int codfichaprodutocomprado, int codprodutocomprado)
         {
             this._idprodutocomprado = idprodutocomprado;
-            this._nomeprodutocomprado = nomeprodutocomprado;
             this._quantidadeprodutocomprado = quantidadeprodutocomprado;
             this._codfichaprodutocomprado = codfichaprodutocomprado;
+            this._codprodutocomprado = codprodutocomprado;
         }
 
         public int IdProdutoComprado
@@ -35,19 +35,6 @@ namespace CamadaDados
             set
             {
                 _idprodutocomprado = value;
-            }
-        }
-
-        public string NomeProdutoComprado
-        {
-            get
-            {
-                return _nomeprodutocomprado;
-            }
-
-            set
-            {
-                _nomeprodutocomprado = value;
             }
         }
 
@@ -77,6 +64,19 @@ namespace CamadaDados
             }
         }
 
+        public int CodProduto
+        {
+            get
+            {
+                return _codprodutocomprado;
+            }
+
+            set
+            {
+                _codprodutocomprado = value;
+            }
+        }
+
         public string inserirProdutoComprado(DProduto_Comprado produtocomprado)
         {
             string resp = "";
@@ -89,15 +89,8 @@ namespace CamadaDados
 
                 SQLiteCommand sqlCmd = new SQLiteCommand();
                 sqlCmd.Connection = sqlCon;
-                sqlCmd.CommandText = "INSERT INTO PRODUTOS_COMPRADOS (NOME_PRODUTO_COMPRADO, QUANTIDADE_PRODUTO_COMPRADO, COD_FICHA) VALUES (@NOME_PRODUTO_COMPRADO, @QUANTIDADE_PRODUTO_COMPRADO, @COD_FICHA);";
+                sqlCmd.CommandText = "INSERT INTO PRODUTOS_COMPRADOS (QUANTIDADE_PRODUTO_COMPRADO, COD_FICHA_PRODUTO_COMPRADO, COD_PRODUTO_COMPRADO) VALUES (@QUANTIDADE_PRODUTO_COMPRADO, @COD_FICHA_PRODUTO_COMPRADO, @COD_PRODUTO_COMPRADO);";
                 sqlCmd.CommandType = CommandType.Text;
-
-                SQLiteParameter parNomeProdutoComprado = new SQLiteParameter();
-                parNomeProdutoComprado.ParameterName = "@NOME_PRODUTO_COMPRADO";
-                parNomeProdutoComprado.DbType = DbType.String;
-                parNomeProdutoComprado.Size = 70;
-                parNomeProdutoComprado.Value = produtocomprado.NomeProdutoComprado;
-                sqlCmd.Parameters.Add(parNomeProdutoComprado);
 
                 SQLiteParameter parQuantidadeProdutoComprado = new SQLiteParameter();
                 parQuantidadeProdutoComprado.ParameterName = "@QUANTIDADE_PRODUTO_COMPRADO";
@@ -106,10 +99,16 @@ namespace CamadaDados
                 sqlCmd.Parameters.Add(parQuantidadeProdutoComprado);
 
                 SQLiteParameter parCodFicha = new SQLiteParameter();
-                parCodFicha.ParameterName = "@COD_FICHA";
+                parCodFicha.ParameterName = "@COD_FICHA_PRODUTO_COMPRADO";
                 parCodFicha.DbType = DbType.Int32;
                 parCodFicha.Value = produtocomprado.CodFicha;
                 sqlCmd.Parameters.Add(parCodFicha);
+
+                SQLiteParameter parCodProduto = new SQLiteParameter();
+                parCodProduto.ParameterName = "@COD_PRODUTO_COMPRADO";
+                parCodProduto.DbType = DbType.Int32;
+                parCodProduto.Value = produtocomprado.CodProduto;
+                sqlCmd.Parameters.Add(parCodProduto);
 
                 resp = sqlCmd.ExecuteNonQuery() == 1 ? "OK" : "Registro não foi inserido";
             }
@@ -123,5 +122,7 @@ namespace CamadaDados
             }
             return resp;
         }
+
+
     }
 }

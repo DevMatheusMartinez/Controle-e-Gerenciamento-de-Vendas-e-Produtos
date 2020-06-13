@@ -96,7 +96,7 @@ namespace CamadaApresentacao
 
         private void btn_caixa_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new formFinalizacaoVenda());
+            AbrirFormInPanel(new formFinalizacaoVenda(this));
         }
 
         private void btn_cliente_Click(object sender, EventArgs e)

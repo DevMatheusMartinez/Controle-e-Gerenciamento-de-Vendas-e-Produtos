@@ -352,7 +352,7 @@ namespace CamadaDados
 
                 SQLiteCommand sqlcmd = new SQLiteCommand();
                 sqlcmd.Connection = sqlcon;
-                sqlcmd.CommandText = "SELECT ID_PRODUTO, NOME_PRODUTO, CATEGORIA_PRODUTO, MARCA_PRODUTO, PRECO_PRODUTO FROM PRODUTO";
+                sqlcmd.CommandText = "SELECT ID_PRODUTO, NOME_PRODUTO, PRECO_PRODUTO FROM PRODUTO";
                 sqlcmd.CommandType = CommandType.Text;
                 SQLiteDataAdapter sqldata = new SQLiteDataAdapter(sqlcmd);
                 sqldata.Fill(DtResultado);

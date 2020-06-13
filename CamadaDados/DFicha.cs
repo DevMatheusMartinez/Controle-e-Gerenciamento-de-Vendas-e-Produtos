@@ -14,18 +14,22 @@ namespace CamadaDados
         private string _identificacaoficha;
         private decimal _precoficha;
         private string _datacompraficha;
+        private string _datapagoficha;
         private string _datavencimentoficha;
+        private string _situacao;
         private int _codclienteficha;
 
         public DFicha() { }
 
-        public DFicha(int idficha, string identificacaoficha, decimal precoficha, string datacompraficha, string datavencimentoficha, int codclienteficha)
+        public DFicha(int idficha, string identificacaoficha, decimal precoficha, string datacompraficha, string datapagoficha, string datavencimentoficha, string situacao, int codclienteficha)
         {
             this._idficha = idficha;
             this._identificacaoficha = identificacaoficha;
             this._precoficha = precoficha;
             this._datacompraficha = datacompraficha;
+            this._datapagoficha = datapagoficha;
             this._datavencimentoficha = datavencimentoficha;
+            this._situacao = situacao;
             this._codclienteficha = codclienteficha;
         }
 
@@ -81,6 +85,19 @@ namespace CamadaDados
             }
         }
 
+        public string DataPagoFicha
+        {
+            get
+            {
+                return _datapagoficha;
+            }
+
+            set
+            {
+                _datapagoficha = value;
+            }
+        }
+
         public string DataVencimentoFicha
         {
             get
@@ -91,6 +108,19 @@ namespace CamadaDados
             set
             {
                 _datavencimentoficha = value;
+            }
+        }
+
+        public string Situacao
+        {
+            get
+            {
+                return _situacao;
+            }
+
+            set
+            {
+                _situacao = value;
             }
         }
 
@@ -119,7 +149,7 @@ namespace CamadaDados
 
                 SQLiteCommand sqlCmd = new SQLiteCommand();
                 sqlCmd.Connection = sqlCon;
-                sqlCmd.CommandText = "INSERT INTO FICHA (IDENTIFICACAO_FICHA, PRECO_FICHA, DATA_COMPRA_FICHA, DATA_VENCIMENTO_FICHA, COD_CLIENTE_FICHA) VALUES (@IDENTIFICACAO_FICHA, @PRECO_FICHA, @DATA_COMPRA_FICHA, @DATA_VENCIMENTO_FICHA, @COD_CLIENTE_FICHA);";
+                sqlCmd.CommandText = "INSERT INTO FICHA (IDENTIFICACAO_FICHA, PRECO_FICHA, DATA_COMPRA_FICHA, DATA_PAGAMENTO_FICHA, DATA_VENCIMENTO_FICHA, SITUACAO_FICHA, COD_CLIENTE_FICHA) VALUES (@IDENTIFICACAO_FICHA, @PRECO_FICHA, @DATA_COMPRA_FICHA, @DATA_PAGAMENTO_FICHA, @DATA_VENCIMENTO_FICHA, @SITUACAO_FICHA, @COD_CLIENTE_FICHA);";
                 sqlCmd.CommandType = CommandType.Text;
 
                 SQLiteParameter parIdentificacao = new SQLiteParameter();
@@ -143,11 +173,24 @@ namespace CamadaDados
                 parCompraData.Value = ficha.DataCompraFicha;
                 sqlCmd.Parameters.Add(parCompraData);
 
+                SQLiteParameter parPagamentoData = new SQLiteParameter();
+                parPagamentoData.ParameterName = "@DATA_PAGAMENTO_FICHA";
+                parPagamentoData.DbType = DbType.String;
+                parPagamentoData.Size = 70;
+                parPagamentoData.Value = ficha.DataPagoFicha;
+                sqlCmd.Parameters.Add(parPagamentoData);
+
                 SQLiteParameter parVencimentoData = new SQLiteParameter();
                 parVencimentoData.ParameterName = "@DATA_VENCIMENTO_FICHA";
                 parVencimentoData.DbType = DbType.String;
                 parVencimentoData.Value = ficha.DataVencimentoFicha;
                 sqlCmd.Parameters.Add(parVencimentoData);
+
+                SQLiteParameter parSituacao = new SQLiteParameter();
+                parSituacao.ParameterName = "@SITUACAO_FICHA";
+                parSituacao.DbType = DbType.String;
+                parSituacao.Value = ficha.Situacao;
+                sqlCmd.Parameters.Add(parSituacao);
 
                 SQLiteParameter parCodCliente = new SQLiteParameter();
                 parCodCliente.ParameterName = "@COD_CLIENTE_FICHA";

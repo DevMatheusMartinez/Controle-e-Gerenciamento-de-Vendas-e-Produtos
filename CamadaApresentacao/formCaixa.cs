@@ -150,7 +150,7 @@ namespace CamadaApresentacao
             quantidadetotallista = NOperacao.SomarQuantidadeTotal(quantidadelista);
 
             lbl_total.Text = "Total: " + precototallista.ToString("C2", CultureInfo.CurrentCulture);
-            lbl_valor_total_da_venda.Text = precototallista.ToString("C2", CultureInfo.CurrentCulture).ToString();
+            lbl_valor_total_da_venda.Text = precototallista.ToString("C2", CultureInfo.CurrentCulture);
             lbl_itens.Text = "Itens: " + precolista.Count;
             lbl_quantidade_itens.Text = "Quantidade: " + quantidadetotallista;
 
@@ -254,7 +254,7 @@ namespace CamadaApresentacao
         private void btn_salvar_Click(object sender, EventArgs e)
         {
             string resp = "";
-            resp = NFicha.InserirFicha("Ficha " + Convert.ToString(NFicha.CarregarUltimoIdFicha() + 1), precototallista, txt_data_pedido.Text, txt_vencimento.Text, Convert.ToInt32(dados[0]));
+            resp = NFicha.InserirFicha("Ficha " + Convert.ToString(NFicha.CarregarUltimoIdFicha() + 1), precototallista, NOperacao.DataAtual(),"", txt_vencimento.Text,"", Convert.ToInt32(dados[0]));
             MessageBox.Show("Ficha salva com sucesso");
         }
 

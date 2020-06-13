@@ -58,14 +58,17 @@ namespace CamadaDados
             sql.AppendLine("[IDENTIFICACAO_FICHA] VARCHAR(80) NOT NULL,");
             sql.AppendLine("[PRECO_FICHA] REAL NOT NULL,");
             sql.AppendLine("[DATA_COMPRA_FICHA] TEXT NOT NULL,");
+            sql.AppendLine("[DATA_PAGAMENTO_FICHA] TEXT NOT NULL,");
             sql.AppendLine("[DATA_VENCIMENTO_FICHA] TEXT NOT NULL,");
             sql.AppendLine("[COD_CLIENTE_FICHA] INTEGER NOT NULL,");
+            sql.AppendLine("[SITUACAO_FICHA] VARCHAR(12) NOT NULL,");
             sql.AppendLine("FOREIGN KEY(COD_CLIENTE_FICHA) REFERENCES CLIENTE(ID_CLIENTE));");
 
             sql.AppendLine("CREATE TABLE IF NOT EXISTS PRODUTOS_COMPRADOS ([ID_PRODUTO_COMPRADO] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,");
-            sql.AppendLine("[NOME_PRODUTO_COMPRADO] VARCHAR(80) NOT NULL,");
             sql.AppendLine("[QUANTIDADE_PRODUTO_COMPRADO] INTEGER NOT NULL,");
             sql.AppendLine("[COD_FICHA_PRODUTO_COMPRADO] INTEGER NOT NULL,");
+            sql.AppendLine("[COD_PRODUTO_COMPRADO] INTEGER NOT NULL,");
+            sql.AppendLine("FOREIGN KEY(COD_PRODUTO_COMPRADO) REFERENCES CLIENTE(ID_PRODUTO),");
             sql.AppendLine("FOREIGN KEY(COD_FICHA_PRODUTO_COMPRADO) REFERENCES CLIENTE(ID_FICHA));");
 
             SQLiteCommand cmd = new SQLiteCommand(sql.ToString(), conn);

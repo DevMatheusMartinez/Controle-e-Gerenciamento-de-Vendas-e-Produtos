@@ -69,6 +69,7 @@
     <Compile Include="NMarca.cs" />
     <Compile Include="NOperacao.cs" />
     <Compile Include="NProduto.cs" />
+    <Compile Include="NProduto_Comprado.cs" />
     <Compile Include="NTelefone.cs" />
     <Compile Include="ProdutoCaixa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

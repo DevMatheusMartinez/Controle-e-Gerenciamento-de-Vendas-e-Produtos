@@ -377,7 +377,6 @@ namespace CamadaDados
                 parNomeCliente.Value = cliente.NomeCliente;
                 sqlCmd.Parameters.Add(parNomeCliente);
 
-
                 SQLiteDataReader leitor = sqlCmd.ExecuteReader();
 
                 while (leitor.Read())
@@ -386,7 +385,7 @@ namespace CamadaDados
                     dados[1] = (leitor["NOME_CLIENTE"].ToString());
                     dados[2] = (leitor["CPF_CLIENTE"].ToString());
                     dados[3] = (leitor["ENDERECO_CLIENTE"].ToString());
-                    dados[4] = (leitor["EMAIL_PRODUTO"].ToString());
+                    dados[4] = (leitor["EMAIL_CLIENTE"].ToString());
                 }
             }
             catch (Exception ex)
