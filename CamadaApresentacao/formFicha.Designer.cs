@@ -110,6 +110,7 @@
             // 
             // lista_fichas
             // 
+            this.lista_fichas.AllowUserToAddRows = false;
             this.lista_fichas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -127,6 +128,7 @@
             this.lista_fichas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.lista_fichas.Size = new System.Drawing.Size(1236, 438);
             this.lista_fichas.TabIndex = 46;
+            this.lista_fichas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lista_fichas_CellContentClick);
             this.lista_fichas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lista_fichas_CellContentDoubleClick);
             this.lista_fichas.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.lista_fichas_CellEnter);
             // 

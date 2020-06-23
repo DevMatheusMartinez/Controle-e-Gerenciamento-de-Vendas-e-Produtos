@@ -36,6 +36,15 @@ namespace CamadaApresentacao
             lista_fichas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             this.lista_fichas.DataSource = NFicha.Mostrar();
+
+            lista_fichas.Columns[0].HeaderText = "FICHA";
+            lista_fichas.Columns[1].HeaderText = "CLIENTE";
+            lista_fichas.Columns[2].HeaderText = "DATA DA COMPRA";
+            lista_fichas.Columns[3].HeaderText = "DATA DO PAGAMENTO";
+            lista_fichas.Columns[4].HeaderText = "DATA DO VENCIMENTO";
+            lista_fichas.Columns[5].HeaderText = "PREÇO";
+            lista_fichas.Columns[6].HeaderText = "SITUAÇÃO";
+            lista_fichas.Columns[5].DefaultCellStyle.Format = "c";
         }
 
         private void formFicha_Load(object sender, EventArgs e)
@@ -49,6 +58,15 @@ namespace CamadaApresentacao
             dic.Add("Situação", 6);
 
             Mostrar();
+
+            DataGridViewButtonColumn fichaButtonColumn = new DataGridViewButtonColumn();
+            fichaButtonColumn.UseColumnTextForButtonValue = true;
+            fichaButtonColumn.HeaderText = "";
+            fichaButtonColumn.Name = "abrirFicha";
+            fichaButtonColumn.Text = "Abrir ficha";
+            fichaButtonColumn.FlatStyle = FlatStyle.Flat;
+
+            lista_fichas.Columns.Insert(lista_fichas.Columns.Count, fichaButtonColumn);
 
             OrdenarCombo.SelectedIndex = 1;
 
@@ -97,6 +115,16 @@ namespace CamadaApresentacao
             formFichaCompra form = new formFichaCompra(ficha);
             form.ShowDialog();
             Mostrar();
+        }
+
+        private void lista_fichas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 0)
+            {
+                formFichaCompra form = new formFichaCompra(ficha);
+                form.ShowDialog();
+                Mostrar();
+            }
         }
     }
 }
