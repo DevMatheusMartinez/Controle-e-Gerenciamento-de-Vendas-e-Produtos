@@ -172,7 +172,7 @@ namespace CamadaApresentacao
             NOperacao.CalcularListaValorQuantidade(Convert.ToInt32(quantidade), Convert.ToDecimal(preco), precolista);
             precototallista = NOperacao.SomarValorTotal(precolista);
             txt_valorTotalCarrinho.Text = precototallista.ToString("N2", CultureInfo.CurrentCulture);
-            numerarGrid(lista_carrinho);
+            NOperacao.numerarGrid(lista_carrinho);
         }
 
         private void lista_carrinho_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -196,7 +196,7 @@ namespace CamadaApresentacao
         private void btn_salvar_Click(object sender, EventArgs e)
         {
             cliente = NCliente.CarregarDadosCliente(comboCliente.Text);
-            formMensagemCaixa form = new formMensagemCaixa(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), this, lista_carrinho);
+            formMensagemCaixa form = new formMensagemCaixa(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), Convert.ToString(comboPagamento.SelectedValue), this, lista_carrinho);
             form.ShowDialog();
             if (decisao)
             {
@@ -207,7 +207,7 @@ namespace CamadaApresentacao
         private void btn_finalizar_Click(object sender, EventArgs e)
         {
             cliente = NCliente.CarregarDadosCliente(comboCliente.Text);
-            formMensagemCaixaFinalizacao form = new formMensagemCaixaFinalizacao(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), this, lista_carrinho);
+            formMensagemCaixaFinalizacao form = new formMensagemCaixaFinalizacao(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), Convert.ToString(comboPagamento.SelectedItem), this, lista_carrinho);
             form.ShowDialog();
             if (decisao)
             {
@@ -292,18 +292,7 @@ namespace CamadaApresentacao
                 precototallista = NOperacao.SomarValorTotal(precolista);
                 txt_valorTotalCarrinho.Text = precototallista.ToString("N2", CultureInfo.CurrentCulture);
                 NOperacao.SubtrairQuantidadeDatagrid(lista_carrinho, itemproduto);
-                numerarGrid(lista_carrinho);
-            }
-        }
-
-        public void numerarGrid(DataGridView dataGridView)
-        {
-            if (dataGridView != null)
-            {
-                for (int count = 0; (count <= (dataGridView.Rows.Count - 1)); count++)
-                {
-                    dataGridView.Rows[count].HeaderCell.Value = string.Format((count + 1).ToString(), "0");
-                }
+                NOperacao.numerarGrid(lista_carrinho);
             }
         }
     }

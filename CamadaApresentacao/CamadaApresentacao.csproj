@@ -98,6 +98,18 @@
     <Compile Include="formEditarProduto.Designer.cs">
       <DependentUpon>formEditarProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="formFicha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formFicha.Designer.cs">
+      <DependentUpon>formFicha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formFichaCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formFichaCompra.Designer.cs">
+      <DependentUpon>formFichaCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="formFinalizacaoVenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +152,12 @@
     <Compile Include="formMensagemDeletado.Designer.cs">
       <DependentUpon>formMensagemDeletado.cs</DependentUpon>
     </Compile>
+    <Compile Include="formMensagemValidacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMensagemValidacao.Designer.cs">
+      <DependentUpon>formMensagemValidacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="formPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +175,12 @@
     </Compile>
     <Compile Include="formTelaCadastroAdministrador.Designer.cs">
       <DependentUpon>formTelaCadastroAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTelefones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTelefones.Designer.cs">
+      <DependentUpon>formTelefones.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -185,6 +209,12 @@
     <EmbeddedResource Include="formEditarProduto.resx">
       <DependentUpon>formEditarProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formFicha.resx">
+      <DependentUpon>formFicha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formFichaCompra.resx">
+      <DependentUpon>formFichaCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formFinalizacaoVenda.resx">
       <DependentUpon>formFinalizacaoVenda.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +236,9 @@
     <EmbeddedResource Include="formMensagemDeletado.resx">
       <DependentUpon>formMensagemDeletado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formMensagemValidacao.resx">
+      <DependentUpon>formMensagemValidacao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formPrincipal.resx">
       <DependentUpon>formPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formTelaCadastroAdministrador.resx">
       <DependentUpon>formTelaCadastroAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTelefones.resx">
+      <DependentUpon>formTelefones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -14,19 +14,19 @@ namespace CamadaApresentacao
     public partial class formMensagemCaixa : Form
     {
         decimal _precototallista;
-        string _datapedido;
-        string _vencimento;
+        string _datapedido, _vencimento, _formapagamento;
         int _cliente;
         DataGridView _datagrid;
         formFinalizacaoVenda _pai;
 
-        public formMensagemCaixa(decimal precototallista, string datapedido, string vencimento, int cliente, formFinalizacaoVenda pai, DataGridView datagrid)
+        public formMensagemCaixa(decimal precototallista, string datapedido, string vencimento, int cliente, string formapagamento, formFinalizacaoVenda pai, DataGridView datagrid)
         {
             InitializeComponent();
             this._precototallista = precototallista;
             this._datapedido = datapedido;
             this._vencimento = vencimento;
             this._cliente = cliente;
+            this._formapagamento = formapagamento;
             this._pai = pai;
             this._datagrid = datagrid;
             lbl_ok.Visible = false;
@@ -38,10 +38,10 @@ namespace CamadaApresentacao
         private void btn_sim_Click(object sender, EventArgs e)
         {
             string resp = "", resp2 = "";
-            resp = NFicha.InserirFicha("Ficha " + Convert.ToString(NFicha.CarregarUltimoIdFicha() + 1), _precototallista, _datapedido, "---", _vencimento, "Pendente", _cliente);
+            resp = NFicha.InserirFicha("Ficha " + Convert.ToString(NFicha.CarregarUltimoIdFicha() + 1), _precototallista, _datapedido, "---", _vencimento, "Pendente", _formapagamento, _cliente);
             for (int i = 0; i < _datagrid.Rows.Count-1; i++)
             {
-                resp2 = NProduto_Comprado.InserirProdutoComprado(Convert.ToInt32(_datagrid.Rows[i].Cells[3].Value), NFicha.CarregarUltimoIdFicha(), Convert.ToInt32(_datagrid.Rows[i].Cells[0].Value));
+                resp2 = NProduto_Comprado.InserirProdutoComprado(Convert.ToInt32(_datagrid.Rows[i].Cells[3].Value), NFicha.CarregarUltimoIdFicha(), Convert.ToInt32(_datagrid.Rows[i].Cells[0].Value), Convert.ToString(_datagrid.Rows[i].Cells[4].Value));
             }
             btn_nao.Enabled = false;
             btn_sim.Enabled = false;

@@ -115,7 +115,17 @@ namespace CamadaNegocios
             {
                 datagrid.Rows.RemoveAt(linha);
             }
-            
+        }
+
+        public static void numerarGrid(DataGridView dataGridView)
+        {
+            if (dataGridView != null)
+            {
+                for (int count = 0; (count <= (dataGridView.Rows.Count - 1)); count++)
+                {
+                    dataGridView.Rows[count].HeaderCell.Value = string.Format((count + 1).ToString(), "0");
+                }
+            }
         }
 
 

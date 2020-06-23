@@ -100,5 +100,37 @@ namespace CamadaDados
             }
             return resp;
         }
+
+        public DataTable mostrarTelefone(DTelefone telefone)
+        {
+            DataTable DtResultado = new DataTable();
+            SQLiteConnection sqlcon = new SQLiteConnection();
+
+            try
+            {
+                sqlcon.ConnectionString = Conexao.Cn;
+                sqlcon.Open();
+
+                SQLiteCommand sqlcmd = new SQLiteCommand();
+                sqlcmd.Connection = sqlcon;
+                sqlcmd.CommandText = "SELECT T.TELEFONE FROM TELEFONE T INNER JOIN CLIENTE C ON T.COD_CLIENTE_TELEFONE = C.ID_CLIENTE WHERE T.COD_CLIENTE_TELEFONE = @COD_CLIENTE";
+                sqlcmd.CommandType = CommandType.Text;
+
+                SQLiteParameter parCodCliente = new SQLiteParameter();
+                parCodCliente.ParameterName = "@COD_CLIENTE";
+                parCodCliente.DbType = DbType.Int32;
+                parCodCliente.Value = telefone.CodCliente;
+                sqlcmd.Parameters.Add(parCodCliente);
+
+                SQLiteDataAdapter sqldata = new SQLiteDataAdapter(sqlcmd);
+                sqldata.Fill(DtResultado);
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+
+            return DtResultado;
+        }
     }
 }

@@ -253,9 +253,7 @@ namespace CamadaApresentacao
 
         private void btn_salvar_Click(object sender, EventArgs e)
         {
-            string resp = "";
-            resp = NFicha.InserirFicha("Ficha " + Convert.ToString(NFicha.CarregarUltimoIdFicha() + 1), precototallista, NOperacao.DataAtual(),"", txt_vencimento.Text,"", Convert.ToInt32(dados[0]));
-            MessageBox.Show("Ficha salva com sucesso");
+            
         }
 
         private void lista_carrinho_CellEnter(object sender, DataGridViewCellEventArgs e)

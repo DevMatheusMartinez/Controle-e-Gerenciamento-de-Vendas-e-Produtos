@@ -32,7 +32,7 @@
             this.lbl_nome = new System.Windows.Forms.Label();
             this.menu_vertical = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_ficha = new System.Windows.Forms.Button();
             this.btn_cliente = new System.Windows.Forms.Button();
             this.btn_produto = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -68,7 +68,7 @@
             // 
             this.menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.menu_vertical.Controls.Add(this.button5);
-            this.menu_vertical.Controls.Add(this.button4);
+            this.menu_vertical.Controls.Add(this.btn_ficha);
             this.menu_vertical.Controls.Add(this.btn_cliente);
             this.menu_vertical.Controls.Add(this.btn_produto);
             this.menu_vertical.Controls.Add(this.pictureBox2);
@@ -96,21 +96,22 @@
             this.button5.Text = "      Configuração";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_ficha
             // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 394);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(228, 95);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "      Análise";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_ficha.FlatAppearance.BorderSize = 0;
+            this.btn_ficha.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.btn_ficha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ficha.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ficha.ForeColor = System.Drawing.Color.White;
+            this.btn_ficha.Image = ((System.Drawing.Image)(resources.GetObject("btn_ficha.Image")));
+            this.btn_ficha.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ficha.Location = new System.Drawing.Point(0, 394);
+            this.btn_ficha.Name = "btn_ficha";
+            this.btn_ficha.Size = new System.Drawing.Size(228, 95);
+            this.btn_ficha.TabIndex = 9;
+            this.btn_ficha.Text = "      Ficha";
+            this.btn_ficha.UseVisualStyleBackColor = true;
+            this.btn_ficha.Click += new System.EventHandler(this.btn_ficha_Click);
             // 
             // btn_cliente
             // 
@@ -125,7 +126,7 @@
             this.btn_cliente.Name = "btn_cliente";
             this.btn_cliente.Size = new System.Drawing.Size(228, 95);
             this.btn_cliente.TabIndex = 8;
-            this.btn_cliente.Text = "      Historico";
+            this.btn_cliente.Text = "      Clientes";
             this.btn_cliente.UseVisualStyleBackColor = true;
             this.btn_cliente.Click += new System.EventHandler(this.btn_cliente_Click);
             // 
@@ -313,7 +314,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_ficha;
         private System.Windows.Forms.Button btn_cliente;
         private System.Windows.Forms.Button btn_produto;
     }

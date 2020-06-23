@@ -39,3 +39,7 @@ C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_
 C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formMensagemCaixa.resources
 C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formMensagemCaixaFinalizacao.resources
 C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formMensagemCancelarVenda.resources
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formFicha.resources
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formFichaCompra.resources
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formTelefones.resources
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formMensagemValidacao.resources
