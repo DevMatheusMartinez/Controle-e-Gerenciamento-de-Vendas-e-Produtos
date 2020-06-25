@@ -18,11 +18,24 @@ namespace CamadaNegocios
             return Telefone.inserirTelefone(Telefone);
         }
 
+        public static string DeletarTelefone(int codcliente)
+        {
+            DTelefone Telefone = new DTelefone();
+            Telefone.CodCliente = codcliente;
+            return Telefone.deletarTelefone(Telefone);
+        }
+
+        public static List<string> ListarTelefone(int codcliente)
+        {
+            DTelefone Telefone = new DTelefone();
+            Telefone.CodCliente = codcliente;
+            return Telefone.listar(Telefone);
+        }
+
         public static DataTable mostrarTelefone(int cod_cliente)
         {
             DTelefone Telefone = new DTelefone();
             Telefone.CodCliente = cod_cliente;
-            
             return Telefone.mostrarTelefone(Telefone);
         }
     }

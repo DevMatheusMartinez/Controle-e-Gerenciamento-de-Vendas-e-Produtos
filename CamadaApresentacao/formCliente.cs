@@ -14,7 +14,7 @@ namespace CamadaApresentacao
 {
     public partial class formCliente : Form
     {
-        
+        string idcliente;
         public formCliente()
         {
             InitializeComponent();
@@ -22,11 +22,6 @@ namespace CamadaApresentacao
 
         public void dimensionarColunas()
         {
-            lista_clientes.Columns[0].Width = 102;
-            lista_clientes.Columns[1].Width = 533;
-            lista_clientes.Columns[2].Width = 164;
-            lista_clientes.Columns[3].Width = 148;
-            lista_clientes.Columns[4].Width = 148;
             lista_clientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -38,7 +33,6 @@ namespace CamadaApresentacao
             lista_clientes.Columns[2].HeaderText = "CPF";
             lista_clientes.Columns[3].HeaderText = "ENDEREÇO";
             lista_clientes.Columns[4].HeaderText = "EMAIL";
-            lista_clientes.Columns.Add("telefone", "Telefones");
 
             dimensionarColunas();
         }
@@ -71,6 +65,56 @@ namespace CamadaApresentacao
         {
             formCadastrarCliente form = new formCadastrarCliente();
             form.ShowDialog();
+            Mostrar();
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            formEditarCliente form = new formEditarCliente(idcliente);
+            form.ShowDialog();
+            Mostrar();
+        }
+
+        private void lista_clientes_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            idcliente = Convert.ToString(this.lista_clientes.CurrentRow.Cells["ID_CLIENTE"].Value);
+        }
+
+        private void btn_deletar_Click(object sender, EventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show("Deseja deletar este cliente?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if(confirm.ToString().ToUpper() == "YES")
+            {
+                string resp = "";
+                resp = NTelefone.DeletarTelefone(Convert.ToInt32(idcliente));
+                resp = NCliente.DeletarCliente(Convert.ToInt32(idcliente));
+                Mostrar();
+            }
+        }
+
+        private void txt_buscar_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_buscar.Text != "Buscar...")
+            {
+                NCliente.FiltrarDados(txt_buscar, lista_clientes);
+            }
+        }
+
+        private void txt_buscar_Leave(object sender, EventArgs e)
+        {
+            if (txt_buscar.Text == "")
+            {
+                txt_buscar.Text = "Buscar...";
+            }
+        }
+
+        private void txt_buscar_Click(object sender, EventArgs e)
+        {
+            if (txt_buscar.Text == "Buscar...")
+            {
+                txt_buscar.Text = "";
+            }
         }
     }
 }

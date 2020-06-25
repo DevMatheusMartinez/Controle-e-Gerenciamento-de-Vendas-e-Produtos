@@ -30,7 +30,7 @@
         {
             this.lbl_mensagem_nome = new System.Windows.Forms.Label();
             this.btn_limpar = new System.Windows.Forms.Button();
-            this.btn_cadastrar = new System.Windows.Forms.Button();
+            this.btn_editar = new System.Windows.Forms.Button();
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_usuario = new System.Windows.Forms.Label();
@@ -52,6 +52,8 @@
             this.lbl_mensagem_email = new System.Windows.Forms.Label();
             this.txt_numero = new System.Windows.Forms.MaskedTextBox();
             this.mtxt_cpf = new System.Windows.Forms.MaskedTextBox();
+            this.lbl_mensagem_telefone = new System.Windows.Forms.Label();
+            this.btn_remover = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_mensagem_nome
@@ -76,19 +78,20 @@
             this.btn_limpar.TabIndex = 59;
             this.btn_limpar.Text = "Limpar";
             this.btn_limpar.UseVisualStyleBackColor = false;
+            this.btn_limpar.Click += new System.EventHandler(this.btn_limpar_Click);
             // 
-            // btn_cadastrar
+            // btn_editar
             // 
-            this.btn_cadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.btn_cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cadastrar.ForeColor = System.Drawing.Color.White;
-            this.btn_cadastrar.Location = new System.Drawing.Point(27, 403);
-            this.btn_cadastrar.Name = "btn_cadastrar";
-            this.btn_cadastrar.Size = new System.Drawing.Size(139, 28);
-            this.btn_cadastrar.TabIndex = 49;
-            this.btn_cadastrar.Text = "Cadastrar";
-            this.btn_cadastrar.UseVisualStyleBackColor = false;
-            this.btn_cadastrar.Click += new System.EventHandler(this.btn_cadastrar_Click);
+            this.btn_editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_editar.ForeColor = System.Drawing.Color.White;
+            this.btn_editar.Location = new System.Drawing.Point(27, 403);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Size = new System.Drawing.Size(139, 28);
+            this.btn_editar.TabIndex = 49;
+            this.btn_editar.Text = "Cadastrar";
+            this.btn_editar.UseVisualStyleBackColor = false;
+            this.btn_editar.Click += new System.EventHandler(this.btn_cadastrar_Click);
             // 
             // txt_nome
             // 
@@ -96,6 +99,7 @@
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(327, 20);
             this.txt_nome.TabIndex = 46;
+            this.txt_nome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nome_KeyPress);
             // 
             // panel1
             // 
@@ -298,12 +302,38 @@
             this.mtxt_cpf.Size = new System.Drawing.Size(328, 20);
             this.mtxt_cpf.TabIndex = 85;
             // 
+            // lbl_mensagem_telefone
+            // 
+            this.lbl_mensagem_telefone.AutoSize = true;
+            this.lbl_mensagem_telefone.BackColor = System.Drawing.Color.Maroon;
+            this.lbl_mensagem_telefone.ForeColor = System.Drawing.Color.White;
+            this.lbl_mensagem_telefone.Location = new System.Drawing.Point(169, 320);
+            this.lbl_mensagem_telefone.Name = "lbl_mensagem_telefone";
+            this.lbl_mensagem_telefone.Size = new System.Drawing.Size(83, 13);
+            this.lbl_mensagem_telefone.TabIndex = 86;
+            this.lbl_mensagem_telefone.Text = "Numero inválido";
+            // 
+            // btn_remover
+            // 
+            this.btn_remover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.btn_remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_remover.ForeColor = System.Drawing.Color.White;
+            this.btn_remover.Location = new System.Drawing.Point(612, 252);
+            this.btn_remover.Name = "btn_remover";
+            this.btn_remover.Size = new System.Drawing.Size(127, 31);
+            this.btn_remover.TabIndex = 87;
+            this.btn_remover.Text = "Remover Numero";
+            this.btn_remover.UseVisualStyleBackColor = false;
+            this.btn_remover.Click += new System.EventHandler(this.btn_remover_Click);
+            // 
             // formCadastrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(754, 459);
+            this.Controls.Add(this.btn_remover);
+            this.Controls.Add(this.lbl_mensagem_telefone);
             this.Controls.Add(this.mtxt_cpf);
             this.Controls.Add(this.txt_numero);
             this.Controls.Add(this.txt_email);
@@ -323,13 +353,14 @@
             this.Controls.Add(this.lbl_mensagem_cpf);
             this.Controls.Add(this.lbl_mensagem_nome);
             this.Controls.Add(this.btn_limpar);
-            this.Controls.Add(this.btn_cadastrar);
+            this.Controls.Add(this.btn_editar);
             this.Controls.Add(this.txt_nome);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_usuario);
             this.Controls.Add(this.lbl_titulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formCadastrarCliente";
-            this.Text = "formCadastrarCliente";
+            this.Load += new System.EventHandler(this.formCadastrarCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,7 +369,7 @@
         #endregion
         private System.Windows.Forms.Label lbl_mensagem_nome;
         private System.Windows.Forms.Button btn_limpar;
-        private System.Windows.Forms.Button btn_cadastrar;
+        private System.Windows.Forms.Button btn_editar;
         private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_usuario;
@@ -360,5 +391,7 @@
         private System.Windows.Forms.Label lbl_mensagem_email;
         private System.Windows.Forms.MaskedTextBox txt_numero;
         private System.Windows.Forms.MaskedTextBox mtxt_cpf;
+        private System.Windows.Forms.Label lbl_mensagem_telefone;
+        private System.Windows.Forms.Button btn_remover;
     }
 }

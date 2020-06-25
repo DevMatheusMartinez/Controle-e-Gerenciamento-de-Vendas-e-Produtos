@@ -358,7 +358,7 @@ namespace CamadaDados
             }
         }
 
-        public string[] carregarDadosCliente(DCliente cliente)
+        public string[] carregarDadosCliente(DCliente cliente, string operacao)
         {
             string[] dados = new string[5];
             SQLiteConnection sqlCon = new SQLiteConnection();
@@ -369,13 +369,25 @@ namespace CamadaDados
 
                 SQLiteCommand sqlCmd = new SQLiteCommand();
                 sqlCmd.Connection = sqlCon;
-                sqlCmd.CommandText = "SELECT * FROM CLIENTE WHERE NOME_CLIENTE = @NOME_CLIENTE";
+                sqlCmd.CommandText = "SELECT * FROM CLIENTE WHERE " + operacao + " = @NOME_ID_CLIENTE";
                 sqlCmd.CommandType = CommandType.Text;
-
-                SQLiteParameter parNomeCliente = new SQLiteParameter();
-                parNomeCliente.ParameterName = "@NOME_CLIENTE";
-                parNomeCliente.Value = cliente.NomeCliente;
-                sqlCmd.Parameters.Add(parNomeCliente);
+                if(operacao == "NOME_CLIENTE")
+                {
+                    SQLiteParameter parNomeCliente = new SQLiteParameter();
+                    parNomeCliente.ParameterName = "@NOME_ID_CLIENTE";
+                    parNomeCliente.DbType = DbType.String;
+                    parNomeCliente.Value = cliente.NomeCliente;
+                    sqlCmd.Parameters.Add(parNomeCliente);
+                }
+                else
+                {
+                    SQLiteParameter parIdCliente = new SQLiteParameter();
+                    parIdCliente.ParameterName = "@NOME_ID_CLIENTE";
+                    parIdCliente.DbType = DbType.Int32;
+                    parIdCliente.Value = cliente.IdCliente;
+                    sqlCmd.Parameters.Add(parIdCliente);
+                }
+                
 
                 SQLiteDataReader leitor = sqlCmd.ExecuteReader();
 

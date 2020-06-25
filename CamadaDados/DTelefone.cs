@@ -101,6 +101,41 @@ namespace CamadaDados
             return resp;
         }
 
+        public string deletarTelefone(DTelefone telefone)
+        {
+            string resp = "";
+            SQLiteConnection sqlCon = new SQLiteConnection();
+
+            try
+            {
+                sqlCon.ConnectionString = Conexao.Cn;
+                sqlCon.Open();
+
+                SQLiteCommand sqlCmd = new SQLiteCommand();
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = "DELETE FROM TELEFONE WHERE COD_CLIENTE_TELEFONE = @COD_CLIENTE_TELEFONE;";
+                sqlCmd.CommandType = CommandType.Text;
+
+                SQLiteParameter parCodCliente = new SQLiteParameter();
+                parCodCliente.ParameterName = "@COD_CLIENTE_TELEFONE";
+                parCodCliente.DbType = DbType.Int32;
+                parCodCliente.Value = telefone.CodCliente;
+                sqlCmd.Parameters.Add(parCodCliente);
+
+                resp = sqlCmd.ExecuteNonQuery() == 1 ? "OK" : "Registro não foi inserido";
+            }
+            catch (Exception e)
+            {
+                resp = e.Message;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return resp;
+        }
+
+
         public DataTable mostrarTelefone(DTelefone telefone)
         {
             DataTable DtResultado = new DataTable();
@@ -131,6 +166,51 @@ namespace CamadaDados
             }
 
             return DtResultado;
+        }
+
+        public List<string> listar(DTelefone telefone)
+        {
+            DataTable DtResultado = new DataTable();
+            SQLiteConnection sqlcon = new SQLiteConnection();
+
+            try
+            {
+                sqlcon.ConnectionString = Conexao.Cn;
+                sqlcon.Open();
+
+                SQLiteCommand sqlcmd = new SQLiteCommand();
+                sqlcmd.Connection = sqlcon;
+                sqlcmd.CommandText = "SELECT TELEFONE FROM TELEFONE WHERE COD_CLIENTE_TELEFONE = @COD_CLIENTE";
+                sqlcmd.CommandType = CommandType.Text;
+
+                SQLiteParameter parCodCliente = new SQLiteParameter();
+                parCodCliente.ParameterName = "@COD_CLIENTE";
+                parCodCliente.DbType = DbType.Int32;
+                parCodCliente.Value = telefone.CodCliente;
+                sqlcmd.Parameters.Add(parCodCliente);
+
+                SQLiteDataAdapter sqldata = new SQLiteDataAdapter(sqlcmd);
+                sqldata.Fill(DtResultado);
+
+                List<string> ListaDeDados = new List<string>();
+
+                foreach (DataRow dataRow in DtResultado.Rows)
+                {
+                    string informação = dataRow["TELEFONE"].ToString();
+                    ListaDeDados.Add(informação);
+                }
+
+                return ListaDeDados;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open) { sqlcon.Close(); }
+            }
         }
     }
 }

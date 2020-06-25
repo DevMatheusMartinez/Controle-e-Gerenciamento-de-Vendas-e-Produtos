@@ -238,7 +238,7 @@ namespace CamadaApresentacao
 
         private void comboCliente_SelectedValueChanged(object sender, EventArgs e)
         {
-            dados =  NCliente.CarregarDadosCliente(comboCliente.Text);
+            dados =  NCliente.CarregarDadosCliente(comboCliente.Text, "NOME_CLIENTE");
             txt_cpf.Text = dados[2];
         }
 

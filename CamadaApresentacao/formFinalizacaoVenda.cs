@@ -195,7 +195,7 @@ namespace CamadaApresentacao
 
         private void btn_salvar_Click(object sender, EventArgs e)
         {
-            cliente = NCliente.CarregarDadosCliente(comboCliente.Text);
+            cliente = NCliente.CarregarDadosCliente(comboCliente.Text, "NOME_CLIENTE");
             formMensagemCaixa form = new formMensagemCaixa(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), Convert.ToString(comboPagamento.SelectedValue), this, lista_carrinho);
             form.ShowDialog();
             if (decisao)
@@ -206,7 +206,7 @@ namespace CamadaApresentacao
 
         private void btn_finalizar_Click(object sender, EventArgs e)
         {
-            cliente = NCliente.CarregarDadosCliente(comboCliente.Text);
+            cliente = NCliente.CarregarDadosCliente(comboCliente.Text, "NOME_CLIENTE");
             formMensagemCaixaFinalizacao form = new formMensagemCaixaFinalizacao(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), Convert.ToString(comboPagamento.SelectedItem), this, lista_carrinho);
             form.ShowDialog();
             if (decisao)

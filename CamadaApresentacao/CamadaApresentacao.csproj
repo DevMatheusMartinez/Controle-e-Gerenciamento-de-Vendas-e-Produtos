@@ -92,6 +92,12 @@
     <Compile Include="formCliente.Designer.cs">
       <DependentUpon>formCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="formEditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEditarCliente.Designer.cs">
+      <DependentUpon>formEditarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="formEditarProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,12 @@
     <Compile Include="formMensagem.Designer.cs">
       <DependentUpon>formMensagem.cs</DependentUpon>
     </Compile>
+    <Compile Include="formMensagemCadastroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMensagemCadastroCliente.Designer.cs">
+      <DependentUpon>formMensagemCadastroCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="formMensagemCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +157,12 @@
     </Compile>
     <Compile Include="formMensagemCancelarVenda.Designer.cs">
       <DependentUpon>formMensagemCancelarVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formMensagemClienteDeletado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMensagemClienteDeletado.Designer.cs">
+      <DependentUpon>formMensagemClienteDeletado.cs</DependentUpon>
     </Compile>
     <Compile Include="formMensagemDeletado.cs">
       <SubType>Form</SubType>
@@ -206,6 +224,9 @@
     <EmbeddedResource Include="formCliente.resx">
       <DependentUpon>formCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formEditarCliente.resx">
+      <DependentUpon>formEditarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formEditarProduto.resx">
       <DependentUpon>formEditarProduto.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +245,9 @@
     <EmbeddedResource Include="formMensagem.resx">
       <DependentUpon>formMensagem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formMensagemCadastroCliente.resx">
+      <DependentUpon>formMensagemCadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formMensagemCaixa.resx">
       <DependentUpon>formMensagemCaixa.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formMensagemCancelarVenda.resx">
       <DependentUpon>formMensagemCancelarVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMensagemClienteDeletado.resx">
+      <DependentUpon>formMensagemClienteDeletado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formMensagemDeletado.resx">
       <DependentUpon>formMensagemDeletado.cs</DependentUpon>
