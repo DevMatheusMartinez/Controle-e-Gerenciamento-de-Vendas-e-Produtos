@@ -107,8 +107,8 @@
             this.Controls.Add(this.btn_nao);
             this.Controls.Add(this.btn_sim);
             this.Controls.Add(this.lbl_mensagem);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formMensagemCancelarVenda";
-            this.Text = "formMensagemCancelarVenda";
             this.ResumeLayout(false);
             this.PerformLayout();
 

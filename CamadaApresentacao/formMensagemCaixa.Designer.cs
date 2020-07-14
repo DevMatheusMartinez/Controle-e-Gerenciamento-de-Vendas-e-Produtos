@@ -107,8 +107,8 @@
             this.Controls.Add(this.btn_nao);
             this.Controls.Add(this.btn_sim);
             this.Controls.Add(this.lbl_mensagem);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formMensagemCaixa";
-            this.Text = "formMensagemCaixa";
             this.ResumeLayout(false);
             this.PerformLayout();
 

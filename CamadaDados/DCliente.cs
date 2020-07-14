@@ -410,5 +410,42 @@ namespace CamadaDados
             }
             return dados;
         }
+
+        public string verificarExistencia(DCliente cliente)
+        {
+            string resp = "";
+            SQLiteConnection sqlCon = new SQLiteConnection();
+
+            try
+            {
+                sqlCon.ConnectionString = Conexao.Cn;
+                sqlCon.Open();
+
+                SQLiteCommand sqlCmd = new SQLiteCommand();
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = "SELECT COUNT(0) FROM CLIENTE WHERE NOME_CLIENTE = @NOME_CLIENTE";
+                sqlCmd.CommandType = CommandType.Text;
+
+                SQLiteParameter parNomeCliente = new SQLiteParameter();
+                parNomeCliente.ParameterName = "@NOME_CLIENTE";
+                parNomeCliente.DbType = DbType.String;
+                parNomeCliente.Size = 80;
+                parNomeCliente.Value = cliente.NomeCliente;
+                sqlCmd.Parameters.Add(parNomeCliente);
+
+                resp = Convert.ToString(sqlCmd.ExecuteScalar());
+            }
+            catch (Exception e)
+            {
+                resp = e.Message;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return resp;
+        }
+
+
     }
 }

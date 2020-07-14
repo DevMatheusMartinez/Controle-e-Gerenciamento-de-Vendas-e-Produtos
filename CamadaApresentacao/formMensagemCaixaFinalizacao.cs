@@ -17,7 +17,6 @@ namespace CamadaApresentacao
         decimal _precototallista;
         string _datapedido, _vencimento, _formapagamento;
         int _cliente, _idficha;
-        bool _caixa;
         DataGridView _datagrid;
         formFinalizacaoVenda _pai;
 
@@ -36,34 +35,18 @@ namespace CamadaApresentacao
             this._pai = pai;
         }
 
-        public formMensagemCaixaFinalizacao(bool caixa, int idficha, string formapagamento)
-        {
-            InitializeComponent();
-            this._caixa = caixa;
-            this._idficha = idficha;
-            this._formapagamento = formapagamento;
-            btn_OK.Enabled = false;
-            btn_OK.Visible = false;
-            lbl_ok.Visible = false;
-        }
-
         private void btn_sim_Click(object sender, EventArgs e)
         {
             string resp = "";
-            if (_caixa)
-            {
-                string resp2 = "";
-                resp = NFicha.InserirFicha("Ficha " + Convert.ToString(NFicha.CarregarUltimoIdFicha() + 1), _precototallista, _datapedido, _datapedido, _vencimento, "Pago", _formapagamento, _cliente);
-                for (int i = 0; i < _datagrid.Rows.Count - 1; i++)
-                {
-                    resp2 = NProduto_Comprado.InserirProdutoComprado(Convert.ToInt32(_datagrid.Rows[i].Cells[3].Value), NFicha.CarregarUltimoIdFicha(), Convert.ToInt32(_datagrid.Rows[i].Cells[0].Value), Convert.ToString(_datagrid.Rows[i].Cells[4].Value));
-                }
-                _pai.decisao = true;
+
+            resp = NFicha.InserirFicha("Ficha " + Convert.ToString(NFicha.CarregarUltimoIdFicha() + 1), _precototallista, _datapedido, _datapedido, _vencimento, "Pago", _formapagamento, _cliente);
+            for (int i = 0; i < _datagrid.Rows.Count - 1; i++)
+             {
+                resp = NProduto_Comprado.InserirProdutoComprado(Convert.ToInt32(_datagrid.Rows[i].Cells[3].Value), NFicha.CarregarUltimoIdFicha(), Convert.ToInt32(_datagrid.Rows[i].Cells[0].Value), Convert.ToString(_datagrid.Rows[i].Cells[4].Value));
+
+                resp = NProduto.EditarEstoque(Convert.ToInt32(_datagrid.Rows[i].Cells[0].Value), NOperacao.SubtrairEstoque(Convert.ToInt32(_datagrid.Rows[i].Cells[0].Value), Convert.ToInt32(_datagrid.Rows[i].Cells[3].Value)));
             }
-            else
-            {
-                resp = NFicha.EditarFicha(_idficha, NOperacao.DataAtual(), "Pago", _formapagamento);
-            }
+            _pai.decisao = true;
             
             btn_nao.Enabled = false;
             btn_sim.Enabled = false;

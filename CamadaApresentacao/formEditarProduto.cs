@@ -44,8 +44,16 @@ namespace CamadaApresentacao
 
         public void criarModoMoeda()
         {
-            valor = txt_preco.Text.Replace("R$", "");
-            txt_preco.Text = string.Format("{0:C}", Convert.ToDecimal(valor));
+            try
+            {
+                valor = txt_preco.Text.Replace("R$", "");
+                txt_preco.Text = string.Format("{0:C}", Convert.ToDecimal(valor));
+            }
+            catch
+            {
+
+            }
+            
         }
 
         public void reverterFormulario()

@@ -26,6 +26,19 @@ namespace CamadaNegocios
             }
         }
 
+        public static int SubtrairEstoque(int codproduto, int quantidade)
+        {
+            string[] dados = new string[6];
+            dados = NProduto.CarregarDadosProduto(codproduto);
+            int resultado = Convert.ToInt32(dados[5]) - quantidade;
+
+            if(resultado < 0)
+            {
+                return 0;
+            }
+            return resultado;
+        }
+
         public static decimal SomarValorTotal(List<decimal> lista)
         {
             var resultado = lista.Sum(x => Convert.ToDecimal(x));
@@ -104,7 +117,7 @@ namespace CamadaNegocios
         public static void SubtrairQuantidadeDatagrid(DataGridView datagrid, int linha)
         {
             int quantidadeatual = Convert.ToInt32(datagrid.Rows[linha].Cells[3].Value);
-            decimal preco = Convert.ToDecimal(datagrid.Rows[linha].Cells[4].Value)/quantidadeatual;
+            decimal preco = Convert.ToDecimal(datagrid.Rows[linha].Cells[4].Value) / quantidadeatual;
             int resultado = quantidadeatual - 1;
             if (resultado >= 1)
             {

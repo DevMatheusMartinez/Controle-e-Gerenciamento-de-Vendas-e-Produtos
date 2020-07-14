@@ -237,6 +237,46 @@ namespace CamadaDados
             return resp;
         }
 
+        public string editarEstoque(DProduto produto)
+        {
+            string resp = "";
+            SQLiteConnection sqlCon = new SQLiteConnection();
+
+            try
+            {
+                sqlCon.ConnectionString = Conexao.Cn;
+                sqlCon.Open();
+
+                SQLiteCommand sqlCmd = new SQLiteCommand();
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = "UPDATE PRODUTO SET ESTOQUE_PRODUTO = @ESTOQUE_PRODUTO WHERE ID_PRODUTO = @ID_PRODUTO;";
+                sqlCmd.CommandType = CommandType.Text;
+
+                SQLiteParameter parId = new SQLiteParameter();
+                parId.ParameterName = "@ID_PRODUTO";
+                parId.DbType = DbType.Int32;
+                parId.Value = produto.Id;
+                sqlCmd.Parameters.Add(parId);
+
+                SQLiteParameter parEstoque = new SQLiteParameter();
+                parEstoque.ParameterName = "@ESTOQUE_PRODUTO";
+                parEstoque.DbType = DbType.Int32;
+                parEstoque.Value = produto.Estoque;
+                sqlCmd.Parameters.Add(parEstoque);
+
+                resp = sqlCmd.ExecuteNonQuery() == 1 ? "OK" : "Registro não foi inserido";
+            }
+            catch (Exception e)
+            {
+                resp = e.Message;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return resp;
+        }
+
         public string deletarProduto(DProduto produto)
         {
             string resp = "";

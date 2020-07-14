@@ -37,8 +37,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lista_produtos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_vencimento = new System.Windows.Forms.MaskedTextBox();
             this.txt_dataPedido = new System.Windows.Forms.TextBox();
-            this.txt_vencimento = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboPagamento = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -83,6 +83,7 @@
             // 
             // lista_produtos
             // 
+            this.lista_produtos.AllowUserToAddRows = false;
             this.lista_produtos.BackgroundColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -119,8 +120,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txt_dataPedido);
             this.panel1.Controls.Add(this.txt_vencimento);
+            this.panel1.Controls.Add(this.txt_dataPedido);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.comboPagamento);
             this.panel1.Controls.Add(this.label3);
@@ -135,6 +136,18 @@
             this.panel1.Size = new System.Drawing.Size(1862, 64);
             this.panel1.TabIndex = 3;
             // 
+            // txt_vencimento
+            // 
+            this.txt_vencimento.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txt_vencimento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_vencimento.Location = new System.Drawing.Point(1475, 35);
+            this.txt_vencimento.Mask = "00/00/0000";
+            this.txt_vencimento.Name = "txt_vencimento";
+            this.txt_vencimento.Size = new System.Drawing.Size(193, 26);
+            this.txt_vencimento.TabIndex = 109;
+            this.txt_vencimento.ValidatingType = typeof(System.DateTime);
+            this.txt_vencimento.Leave += new System.EventHandler(this.txt_vencimento_Leave);
+            // 
             // txt_dataPedido
             // 
             this.txt_dataPedido.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -142,18 +155,9 @@
             this.txt_dataPedido.ForeColor = System.Drawing.Color.Black;
             this.txt_dataPedido.Location = new System.Drawing.Point(1052, 35);
             this.txt_dataPedido.Name = "txt_dataPedido";
+            this.txt_dataPedido.ReadOnly = true;
             this.txt_dataPedido.Size = new System.Drawing.Size(193, 26);
             this.txt_dataPedido.TabIndex = 81;
-            // 
-            // txt_vencimento
-            // 
-            this.txt_vencimento.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_vencimento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_vencimento.ForeColor = System.Drawing.Color.Black;
-            this.txt_vencimento.Location = new System.Drawing.Point(1475, 35);
-            this.txt_vencimento.Name = "txt_vencimento";
-            this.txt_vencimento.Size = new System.Drawing.Size(193, 26);
-            this.txt_vencimento.TabIndex = 80;
             // 
             // label5
             // 
@@ -169,6 +173,7 @@
             // comboPagamento
             // 
             this.comboPagamento.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboPagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPagamento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPagamento.FormattingEnabled = true;
             this.comboPagamento.Items.AddRange(new object[] {
@@ -200,6 +205,7 @@
             this.comboCliente.Name = "comboCliente";
             this.comboCliente.Size = new System.Drawing.Size(181, 26);
             this.comboCliente.TabIndex = 75;
+            this.comboCliente.Leave += new System.EventHandler(this.comboCliente_Leave);
             // 
             // label2
             // 
@@ -294,6 +300,7 @@
             this.txt_precoUnitario.ForeColor = System.Drawing.Color.Black;
             this.txt_precoUnitario.Location = new System.Drawing.Point(809, 194);
             this.txt_precoUnitario.Name = "txt_precoUnitario";
+            this.txt_precoUnitario.ReadOnly = true;
             this.txt_precoUnitario.Size = new System.Drawing.Size(188, 63);
             this.txt_precoUnitario.TabIndex = 81;
             this.txt_precoUnitario.Text = "0,00";
@@ -324,6 +331,7 @@
             this.txt_valorTotalProduto.ForeColor = System.Drawing.Color.Black;
             this.txt_valorTotalProduto.Location = new System.Drawing.Point(1155, 193);
             this.txt_valorTotalProduto.Name = "txt_valorTotalProduto";
+            this.txt_valorTotalProduto.ReadOnly = true;
             this.txt_valorTotalProduto.Size = new System.Drawing.Size(188, 63);
             this.txt_valorTotalProduto.TabIndex = 86;
             this.txt_valorTotalProduto.Text = "0,00";
@@ -371,6 +379,7 @@
             this.lista_carrinho.DefaultCellStyle = dataGridViewCellStyle5;
             this.lista_carrinho.Location = new System.Drawing.Point(762, 280);
             this.lista_carrinho.Name = "lista_carrinho";
+            this.lista_carrinho.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -432,6 +441,7 @@
             this.txt_troco.ForeColor = System.Drawing.Color.Black;
             this.txt_troco.Location = new System.Drawing.Point(1029, 1001);
             this.txt_troco.Name = "txt_troco";
+            this.txt_troco.ReadOnly = true;
             this.txt_troco.Size = new System.Drawing.Size(197, 63);
             this.txt_troco.TabIndex = 97;
             this.txt_troco.Text = "0,00";
@@ -452,6 +462,7 @@
             this.txt_valorTotalCarrinho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.txt_valorTotalCarrinho.Location = new System.Drawing.Point(1270, 1001);
             this.txt_valorTotalCarrinho.Name = "txt_valorTotalCarrinho";
+            this.txt_valorTotalCarrinho.ReadOnly = true;
             this.txt_valorTotalCarrinho.Size = new System.Drawing.Size(356, 118);
             this.txt_valorTotalCarrinho.TabIndex = 100;
             this.txt_valorTotalCarrinho.Text = "0,00";
@@ -570,7 +581,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1862, 1214);
+            this.ClientSize = new System.Drawing.Size(1862, 1212);
             this.Controls.Add(this.btn_remover);
             this.Controls.Add(this.numericQuantidade);
             this.Controls.Add(this.btn_cancelar);
@@ -625,7 +636,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboCliente;
         private System.Windows.Forms.ComboBox comboPagamento;
-        private System.Windows.Forms.TextBox txt_vencimento;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbl_produto;
@@ -655,5 +665,6 @@
         private System.Windows.Forms.Timer verificador;
         private System.Windows.Forms.TextBox txt_dataPedido;
         private System.Windows.Forms.Button btn_remover;
+        private System.Windows.Forms.MaskedTextBox txt_vencimento;
     }
 }

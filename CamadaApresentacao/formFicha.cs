@@ -13,6 +13,7 @@ namespace CamadaApresentacao
 {
     public partial class formFicha : Form
     {
+        bool criarbutton = true;
         Dictionary<string, int> dic = new Dictionary<string, int>();
         string ficha;
         public formFicha()
@@ -22,6 +23,50 @@ namespace CamadaApresentacao
 
         private void Mostrar()
         {
+            this.lista_fichas.DataSource = NFicha.Mostrar();
+
+            DataGridViewButtonColumn fichaButtonColumn = new DataGridViewButtonColumn();
+            fichaButtonColumn.UseColumnTextForButtonValue = true;
+            fichaButtonColumn.HeaderText = "";
+            fichaButtonColumn.Name = "abrirFicha";
+            fichaButtonColumn.Text = "Abrir ficha";
+            fichaButtonColumn.FlatStyle = FlatStyle.Flat;
+            if (criarbutton)
+            {
+                lista_fichas.Columns[0].HeaderText = "FICHA";
+                lista_fichas.Columns[1].HeaderText = "CLIENTE";
+                lista_fichas.Columns[2].HeaderText = "DATA DA COMPRA";
+                lista_fichas.Columns[3].HeaderText = "DATA DO PAGAMENTO";
+                lista_fichas.Columns[4].HeaderText = "DATA DO VENCIMENTO";
+                lista_fichas.Columns[5].HeaderText = "PREÇO";
+                lista_fichas.Columns[6].HeaderText = "SITUAÇÃO";
+                lista_fichas.Columns[5].DefaultCellStyle.Format = "c";
+                lista_fichas.Columns.Insert(7, fichaButtonColumn);
+                criarbutton = false;
+            }
+            else
+            {
+                lista_fichas.Columns[1].HeaderText = "FICHA";
+                lista_fichas.Columns[2].HeaderText = "CLIENTE";
+                lista_fichas.Columns[3].HeaderText = "DATA DA COMPRA";
+                lista_fichas.Columns[4].HeaderText = "DATA DO PAGAMENTO";
+                lista_fichas.Columns[5].HeaderText = "DATA DO VENCIMENTO";
+                lista_fichas.Columns[6].HeaderText = "PREÇO";
+                lista_fichas.Columns[7].HeaderText = "SITUAÇÃO";
+                lista_fichas.Columns[6].DefaultCellStyle.Format = "c";
+            }
+        }
+
+        private void formFicha_Load(object sender, EventArgs e)
+        {
+            dic.Add("Ficha", 0);
+            dic.Add("Cliente", 1);
+            dic.Add("Data de compra", 2);
+            dic.Add("Data de vencimento", 3);
+            dic.Add("Data de pagamento", 4);
+            dic.Add("Preço", 5);
+            dic.Add("Situação", 6);
+
             lista_fichas.BorderStyle = BorderStyle.None;
             lista_fichas.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             lista_fichas.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -35,40 +80,7 @@ namespace CamadaApresentacao
             lista_fichas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             lista_fichas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            this.lista_fichas.DataSource = NFicha.Mostrar();
-
-            lista_fichas.Columns[0].HeaderText = "FICHA";
-            lista_fichas.Columns[1].HeaderText = "CLIENTE";
-            lista_fichas.Columns[2].HeaderText = "DATA DA COMPRA";
-            lista_fichas.Columns[3].HeaderText = "DATA DO PAGAMENTO";
-            lista_fichas.Columns[4].HeaderText = "DATA DO VENCIMENTO";
-            lista_fichas.Columns[5].HeaderText = "PREÇO";
-            lista_fichas.Columns[6].HeaderText = "SITUAÇÃO";
-            lista_fichas.Columns[5].DefaultCellStyle.Format = "c";
-        }
-
-        private void formFicha_Load(object sender, EventArgs e)
-        {
-            dic.Add("Ficha", 0);
-            dic.Add("Cliente", 1);
-            dic.Add("Data de compra", 2);
-            dic.Add("Data de vencimento", 3);
-            dic.Add("Data de pagamento", 4);
-            dic.Add("Preço", 5);
-            dic.Add("Situação", 6);
-
             Mostrar();
-
-            DataGridViewButtonColumn fichaButtonColumn = new DataGridViewButtonColumn();
-            fichaButtonColumn.UseColumnTextForButtonValue = true;
-            fichaButtonColumn.HeaderText = "";
-            fichaButtonColumn.Name = "abrirFicha";
-            fichaButtonColumn.Text = "Abrir ficha";
-            fichaButtonColumn.FlatStyle = FlatStyle.Flat;
-
-            lista_fichas.Columns.Insert(lista_fichas.Columns.Count, fichaButtonColumn);
-
-            OrdenarCombo.SelectedIndex = 1;
 
             for (int i = 0; i < lista_fichas.ColumnCount; i++)
             {
@@ -94,7 +106,6 @@ namespace CamadaApresentacao
 
         private void OrdenarCombo_SelectedValueChanged(object sender, EventArgs e)
         {
-            lista_fichas.Sort(lista_fichas.Columns[dic[Convert.ToString(OrdenarCombo.SelectedItem)]], ListSortDirection.Ascending);
         }
 
         private void txt_buscar_Click(object sender, EventArgs e)

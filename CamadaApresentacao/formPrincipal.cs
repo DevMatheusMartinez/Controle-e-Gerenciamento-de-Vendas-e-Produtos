@@ -13,6 +13,8 @@ namespace CamadaApresentacao
 {
     public partial class formPrincipal : Form
     {
+        bool protecao = false;
+        DialogResult resultado;
         public formPrincipal()
         {
             InitializeComponent();
@@ -91,22 +93,79 @@ namespace CamadaApresentacao
 
         private void btn_produto_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new formProduto());
+            if (!protecao)
+            {
+                AbrirFormInPanel(new formProduto());
+            }
+            else
+            {
+                resultado = MessageBox.Show("Deseja mesmo sair dessa aba?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    protecao = false;
+                    AbrirFormInPanel(new formProduto());
+                }
+            }
         }
 
         private void btn_caixa_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new formFinalizacaoVenda(this));
+            if (!protecao)
+            {
+                AbrirFormInPanel(new formFinalizacaoVenda(this));
+                protecao = true;
+            }
         }
 
         private void btn_cliente_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new formCliente());
+            if (!protecao)
+            {
+                AbrirFormInPanel(new formCliente());
+            }
+            else
+            {
+                resultado = MessageBox.Show("Deseja mesmo sair dessa aba?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    protecao = false;
+                    AbrirFormInPanel(new formCliente());
+                }
+            }
         }
 
         private void btn_ficha_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new formFicha());
+            if (!protecao)
+            {
+                AbrirFormInPanel(new formFicha());
+            }
+            else
+            {
+                resultado = MessageBox.Show("Deseja mesmo sair dessa aba?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    protecao = false;
+                    AbrirFormInPanel(new formFicha());
+                }
+            }
+        }
+
+        private void btn_ferramentas_Click(object sender, EventArgs e)
+        {
+            if (!protecao)
+            {
+                AbrirFormInPanel(new formConfiguracao());
+            }
+            else
+            {
+                resultado = MessageBox.Show("Deseja mesmo sair dessa aba?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    protecao = false;
+                    AbrirFormInPanel(new formConfiguracao());
+                }
+            }
         }
     }
 }

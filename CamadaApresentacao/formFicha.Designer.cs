@@ -30,8 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pn_top = new System.Windows.Forms.Panel();
-            this.OrdenarCombo = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.lista_fichas = new System.Windows.Forms.DataGridView();
@@ -43,8 +41,6 @@
             // pn_top
             // 
             this.pn_top.BackColor = System.Drawing.Color.White;
-            this.pn_top.Controls.Add(this.OrdenarCombo);
-            this.pn_top.Controls.Add(this.label4);
             this.pn_top.Controls.Add(this.label1);
             this.pn_top.Controls.Add(this.txt_buscar);
             this.pn_top.Dock = System.Windows.Forms.DockStyle.Top;
@@ -52,34 +48,6 @@
             this.pn_top.Name = "pn_top";
             this.pn_top.Size = new System.Drawing.Size(1239, 90);
             this.pn_top.TabIndex = 1;
-            // 
-            // OrdenarCombo
-            // 
-            this.OrdenarCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OrdenarCombo.FormattingEnabled = true;
-            this.OrdenarCombo.Items.AddRange(new object[] {
-            "Cliente",
-            "Data de compra",
-            "Data de vencimento",
-            "Data de pagamento",
-            "Preço",
-            "Situação"});
-            this.OrdenarCombo.Location = new System.Drawing.Point(955, 55);
-            this.OrdenarCombo.Name = "OrdenarCombo";
-            this.OrdenarCombo.Size = new System.Drawing.Size(219, 21);
-            this.OrdenarCombo.TabIndex = 45;
-            this.OrdenarCombo.SelectedValueChanged += new System.EventHandler(this.OrdenarCombo_SelectedValueChanged);
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(951, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 23);
-            this.label4.TabIndex = 44;
-            this.label4.Text = "Ordenar por:";
             // 
             // label1
             // 
@@ -166,8 +134,6 @@
         private System.Windows.Forms.Panel pn_top;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_buscar;
-        private System.Windows.Forms.ComboBox OrdenarCombo;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView lista_fichas;
         private System.Windows.Forms.Panel panel1;
     }

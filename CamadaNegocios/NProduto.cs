@@ -34,6 +34,14 @@ namespace CamadaNegocios
             return Produto.editarProduto(Produto);
         }
 
+        public static string EditarEstoque(int id, int estoque)
+        {
+            DProduto Produto = new DProduto();
+            Produto.Id = id;
+            Produto.Estoque = estoque;
+            return Produto.editarEstoque(Produto);
+        }
+
         public static string DeletarProduto(int id)
         {
             DProduto Produto = new DProduto();

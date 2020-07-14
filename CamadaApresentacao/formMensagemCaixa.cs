@@ -15,6 +15,7 @@ namespace CamadaApresentacao
     {
         decimal _precototallista;
         string _datapedido, _vencimento, _formapagamento;
+        string[] dados = new string[6];
         int _cliente;
         DataGridView _datagrid;
         formFinalizacaoVenda _pai;
@@ -37,11 +38,13 @@ namespace CamadaApresentacao
 
         private void btn_sim_Click(object sender, EventArgs e)
         {
-            string resp = "", resp2 = "";
+            string resp = "";
             resp = NFicha.InserirFicha("Ficha " + Convert.ToString(NFicha.CarregarUltimoIdFicha() + 1), _precototallista, _datapedido, "---", _vencimento, "Pendente", _formapagamento, _cliente);
             for (int i = 0; i < _datagrid.Rows.Count-1; i++)
             {
-                resp2 = NProduto_Comprado.InserirProdutoComprado(Convert.ToInt32(_datagrid.Rows[i].Cells[3].Value), NFicha.CarregarUltimoIdFicha(), Convert.ToInt32(_datagrid.Rows[i].Cells[0].Value), Convert.ToString(_datagrid.Rows[i].Cells[4].Value));
+                int quantidade = Convert.ToInt32(_datagrid.Rows[i].Cells[3].Value), cod_produto = Convert.ToInt32(_datagrid.Rows[i].Cells[0].Value);
+                resp = NProduto_Comprado.InserirProdutoComprado(quantidade, NFicha.CarregarUltimoIdFicha(), cod_produto, Convert.ToString(_datagrid.Rows[i].Cells[4].Value));
+                resp = NProduto.EditarEstoque(cod_produto, NOperacao.SubtrairEstoque(cod_produto, Convert.ToInt32(_datagrid.Rows[i].Cells[3].Value)));
             }
             btn_nao.Enabled = false;
             btn_sim.Enabled = false;

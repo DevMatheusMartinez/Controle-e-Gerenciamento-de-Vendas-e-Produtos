@@ -448,6 +448,7 @@
             // 
             // combo_pagamento
             // 
+            this.combo_pagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_pagamento.FormattingEnabled = true;
             this.combo_pagamento.Items.AddRange(new object[] {
             "Dinheiro",

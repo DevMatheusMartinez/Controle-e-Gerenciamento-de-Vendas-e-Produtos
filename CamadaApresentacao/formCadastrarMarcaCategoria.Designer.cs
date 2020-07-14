@@ -110,8 +110,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_nome);
             this.Controls.Add(this.lbl_titulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formCadastrarMarcaCategoria";
-            this.Text = "formCadastrarMarcaCategoria";
             this.ResumeLayout(false);
             this.PerformLayout();
 

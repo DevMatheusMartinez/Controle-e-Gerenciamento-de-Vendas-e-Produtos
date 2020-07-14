@@ -128,6 +128,7 @@
             // 
             // comboCategoria
             // 
+            this.comboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCategoria.FormattingEnabled = true;
             this.comboCategoria.Items.AddRange(new object[] {
             "teste",
@@ -142,6 +143,7 @@
             // 
             // comboMarca
             // 
+            this.comboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMarca.FormattingEnabled = true;
             this.comboMarca.Location = new System.Drawing.Point(28, 236);
             this.comboMarca.Name = "comboMarca";
@@ -336,7 +338,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_usuario);
             this.Controls.Add(this.lbl_titulo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formCadastrarProduto";
             this.Text = "Cadastrar Produto";
             this.Load += new System.EventHandler(this.formCadastrarProduto_Load);

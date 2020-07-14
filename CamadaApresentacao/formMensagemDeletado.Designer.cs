@@ -122,9 +122,8 @@
             this.Controls.Add(this.btn_sim);
             this.Controls.Add(this.lbl_mensagem);
             this.Controls.Add(this.lbl_nome_produto);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formMensagemDeletado";
-            this.Text = "formMensagemDeletado";
             this.ResumeLayout(false);
             this.PerformLayout();
 

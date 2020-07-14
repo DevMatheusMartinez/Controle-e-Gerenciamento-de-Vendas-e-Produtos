@@ -86,8 +86,16 @@ namespace CamadaApresentacao
 
         private void txt_preco_Leave(object sender, EventArgs e)
         {
-            valor = txt_preco.Text.Replace("R$", "");
-            txt_preco.Text = string.Format("{N}", Convert.ToDouble(valor));
+            try
+            {
+                valor = txt_preco.Text.Replace("R$", "");
+                txt_preco.Text = String.Format("{0:C}", Convert.ToDecimal(valor));
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private void txt_preco_TextChanged(object sender, EventArgs e)

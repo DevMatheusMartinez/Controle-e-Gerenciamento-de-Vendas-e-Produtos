@@ -17,6 +17,7 @@ namespace CamadaApresentacao
         int codcliente, idficha;
         decimal precototal;
         string valor;
+        string[] dados = new string[13];
         private Timer timerverificador = new Timer();
         public formFichaCompra(string ficha)
         {
@@ -26,7 +27,7 @@ namespace CamadaApresentacao
             dicformapagamento.Add("Crédito", 1);
             dicformapagamento.Add("Débito", 2);
 
-            string[] dados = new string[13];
+            
             dados = NFicha.CarregarDadosFicha(ficha);
             codcliente = Convert.ToInt32(dados[6]);
             precototal = Convert.ToDecimal(dados[2]);
@@ -119,14 +120,14 @@ namespace CamadaApresentacao
         {
             if(Convert.ToDecimal(txt_dinheiro.Text) < Convert.ToDecimal(lbl_valortotal.Text) && combo_pagamento.SelectedIndex == 0)
             {
-                formMensagemValidacao form = new formMensagemValidacao();
-                form.ShowDialog();
+                MessageBox.Show("Dinheiro insuficiente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                formMensagemCaixaFinalizacao form = new formMensagemCaixaFinalizacao(false, idficha, Convert.ToString(combo_pagamento.SelectedItem));
-                form.ShowDialog();
-                this.Close();
+                string resp = "";
+                resp = NFicha.EditarFicha(Convert.ToInt32(dados[0]), NOperacao.DataAtual(), "Pago", combo_pagamento.SelectedItem.ToString());
+                MessageBox.Show("Ficha paga com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
         }
 

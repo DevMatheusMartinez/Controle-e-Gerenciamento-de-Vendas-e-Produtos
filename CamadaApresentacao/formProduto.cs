@@ -23,17 +23,23 @@ namespace CamadaApresentacao
 
         public void dimensionarColunas()
         {
-            lista_produtos.Columns[0].Width = 102;
-            lista_produtos.Columns[1].Width = 533;
-            lista_produtos.Columns[2].Width = 164;
-            lista_produtos.Columns[3].Width = 148;
-            lista_produtos.Columns[4].Width = 148;
-            lista_produtos.Columns[5].Width = 102;
             lista_produtos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void Mostrar()
         {
+            lista_produtos.BorderStyle = BorderStyle.None;
+            lista_produtos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            lista_produtos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            lista_produtos.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            lista_produtos.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            lista_produtos.BackgroundColor = Color.White;
+
+            lista_produtos.EnableHeadersVisualStyles = false;
+            lista_produtos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            lista_produtos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 84, 84);
+            lista_produtos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
             this.lista_produtos.DataSource = NProduto.Mostrar();
             lista_produtos.Columns[0].HeaderText = "CÓDIGO";
             lista_produtos.Columns[1].HeaderText = "NOME";
@@ -50,17 +56,7 @@ namespace CamadaApresentacao
         {
             txt_buscar.Text = "Buscar...";
             Conexao.criarBanco();
-            lista_produtos.BorderStyle = BorderStyle.None;
-            lista_produtos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            lista_produtos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            lista_produtos.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            lista_produtos.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            lista_produtos.BackgroundColor = Color.White;
-
-            lista_produtos.EnableHeadersVisualStyles = false;
-            lista_produtos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            lista_produtos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 84, 84);
-            lista_produtos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            
 
             Mostrar();
 
@@ -112,8 +108,14 @@ namespace CamadaApresentacao
 
         private void btn_deletar_Click(object sender, EventArgs e)
         {
-            formMensagemDeletado form = new formMensagemDeletado(idproduto);
-            form.ShowDialog();
+            DialogResult confirm = MessageBox.Show("Deseja deletar este produto", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (confirm.ToString().ToUpper() == "YES")
+            {
+                string resp = "";
+                resp = NProduto.DeletarProduto(Convert.ToInt32(idproduto));
+                Mostrar();
+            }
             Mostrar();
         }
 

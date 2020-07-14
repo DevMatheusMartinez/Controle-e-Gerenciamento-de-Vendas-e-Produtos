@@ -338,7 +338,7 @@
             this.Controls.Add(this.lbl_titulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "formEditarProduto";
-            this.Text = "formEditarProduto";
+            this.Text = "Editar Produto";
             this.Load += new System.EventHandler(this.formEditarProduto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.quantidade_num)).EndInit();
             this.ResumeLayout(false);

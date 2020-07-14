@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPrincipal));
             this.lbl_nome = new System.Windows.Forms.Label();
             this.menu_vertical = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btn_ferramentas = new System.Windows.Forms.Button();
             this.btn_ficha = new System.Windows.Forms.Button();
             this.btn_cliente = new System.Windows.Forms.Button();
             this.btn_produto = new System.Windows.Forms.Button();
@@ -67,7 +67,7 @@
             // menu_vertical
             // 
             this.menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.menu_vertical.Controls.Add(this.button5);
+            this.menu_vertical.Controls.Add(this.btn_ferramentas);
             this.menu_vertical.Controls.Add(this.btn_ficha);
             this.menu_vertical.Controls.Add(this.btn_cliente);
             this.menu_vertical.Controls.Add(this.btn_produto);
@@ -80,21 +80,22 @@
             this.menu_vertical.Size = new System.Drawing.Size(61, 1100);
             this.menu_vertical.TabIndex = 1;
             // 
-            // button5
+            // btn_ferramentas
             // 
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 495);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(228, 95);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "      Configuração";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_ferramentas.FlatAppearance.BorderSize = 0;
+            this.btn_ferramentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.btn_ferramentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ferramentas.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ferramentas.ForeColor = System.Drawing.Color.White;
+            this.btn_ferramentas.Image = ((System.Drawing.Image)(resources.GetObject("btn_ferramentas.Image")));
+            this.btn_ferramentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ferramentas.Location = new System.Drawing.Point(0, 495);
+            this.btn_ferramentas.Name = "btn_ferramentas";
+            this.btn_ferramentas.Size = new System.Drawing.Size(228, 95);
+            this.btn_ferramentas.TabIndex = 10;
+            this.btn_ferramentas.Text = "      Ferramentas";
+            this.btn_ferramentas.UseVisualStyleBackColor = true;
+            this.btn_ferramentas.Click += new System.EventHandler(this.btn_ferramentas_Click);
             // 
             // btn_ficha
             // 
@@ -313,7 +314,7 @@
         private System.Windows.Forms.Button btn_caixa;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_ferramentas;
         private System.Windows.Forms.Button btn_ficha;
         private System.Windows.Forms.Button btn_cliente;
         private System.Windows.Forms.Button btn_produto;

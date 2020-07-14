@@ -19,7 +19,7 @@ namespace CamadaApresentacao
             InitializeComponent();
             string[] dados = new string[5];
             dados = NProduto.CarregarDadosProduto(id);
-            lbl_nome_produto.Text = dados[0];
+            lbl_nome_produto.Text = dados[1];
             lbl_nome_produto.AutoSize = false;
             lbl_nome_produto.Dock = DockStyle.Fill; 
             lbl_nome_produto.TextAlign = ContentAlignment.MiddleCenter;

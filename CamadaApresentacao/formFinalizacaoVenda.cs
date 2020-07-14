@@ -142,9 +142,16 @@ namespace CamadaApresentacao
 
             if(txt_dinheiro.Text != " 0,00")
             {
-                decimal dinheiro = Convert.ToDecimal(txt_dinheiro.Text);
-                decimal total = Convert.ToDecimal(txt_valorTotalCarrinho.Text);
-                txt_troco.Text = NOperacao.SubtrairValor(dinheiro, total).ToString("N2", CultureInfo.CurrentCulture);
+                try
+                {
+                    decimal dinheiro = Convert.ToDecimal(txt_dinheiro.Text);
+                    decimal total = Convert.ToDecimal(txt_valorTotalCarrinho.Text);
+                    txt_troco.Text = NOperacao.SubtrairValor(dinheiro, total).ToString("N2", CultureInfo.CurrentCulture);
+                }
+                catch
+                {
+
+                }
             }
         }
 
@@ -196,22 +203,48 @@ namespace CamadaApresentacao
         private void btn_salvar_Click(object sender, EventArgs e)
         {
             cliente = NCliente.CarregarDadosCliente(comboCliente.Text, "NOME_CLIENTE");
-            formMensagemCaixa form = new formMensagemCaixa(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), Convert.ToString(comboPagamento.SelectedValue), this, lista_carrinho);
-            form.ShowDialog();
-            if (decisao)
+            decimal troco = Convert.ToDecimal(txt_troco.Text);
+            decimal dinheiro = Convert.ToDecimal(txt_dinheiro.Text);
+            if(precolista.Count > 0)
             {
-                _pai.AbrirFormInPanel(new formFinalizacaoVenda(_pai));
+                formMensagemCaixa form = new formMensagemCaixa(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), Convert.ToString(comboPagamento.SelectedValue), this, lista_carrinho);
+                form.ShowDialog();
+                if (decisao)
+                {
+                    _pai.AbrirFormInPanel(new formFinalizacaoVenda(_pai));
+                }
             }
+            else
+            {
+                MessageBox.Show("Nenhum item no carrinho", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void btn_finalizar_Click(object sender, EventArgs e)
         {
             cliente = NCliente.CarregarDadosCliente(comboCliente.Text, "NOME_CLIENTE");
-            formMensagemCaixaFinalizacao form = new formMensagemCaixaFinalizacao(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), Convert.ToString(comboPagamento.SelectedItem), this, lista_carrinho);
-            form.ShowDialog();
-            if (decisao)
+            decimal troco = Convert.ToDecimal(txt_troco.Text);
+            decimal dinheiro = Convert.ToDecimal(txt_dinheiro.Text);
+            if(precolista.Count > 0)
             {
-                _pai.AbrirFormInPanel(new formFinalizacaoVenda(_pai));
+                if (troco >= 0 && dinheiro > 0)
+                {
+                    formMensagemCaixaFinalizacao form = new formMensagemCaixaFinalizacao(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), Convert.ToString(comboPagamento.SelectedItem), this, lista_carrinho);
+                    form.ShowDialog();
+                    if (decisao)
+                    {
+                        _pai.AbrirFormInPanel(new formFinalizacaoVenda(_pai));
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Dinheiro insuficiente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nenhum item no carrinho", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -247,6 +280,51 @@ namespace CamadaApresentacao
             {
                 _pai.AbrirFormInPanel(new formFinalizacaoVenda(_pai));
             }
+        }
+
+        private void comboCliente_Leave(object sender, EventArgs e)
+        {
+            if (!NCliente.VerificarExistencia(comboCliente.Text))
+            {
+                MessageBox.Show("Cliente não existe", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                comboCliente.Text = "Padrão";
+            }
+        }
+
+        private void txt_vencimento_Leave(object sender, EventArgs e)
+        {
+            string[] data = new string[3];
+            string datatexto = txt_dataPedido.Text;
+            data = datatexto.Split('/');
+            DateTime inicio = new DateTime(Convert.ToInt32(data[2]), Convert.ToInt32(data[1]), Convert.ToInt32(data[0]));
+            datatexto = txt_vencimento.Text;
+            data = datatexto.Split('/');
+            if (Convert.ToInt32(data[1]) > 0 && Convert.ToInt32(data[1]) < 13)
+            {
+                if(data[2].Length == 4)
+                {
+                    DateTime fim = new DateTime(Convert.ToInt32(data[2]), Convert.ToInt32(data[1]), Convert.ToInt32(data[0]));
+
+                    if (DateTime.Compare(inicio, fim) > 0)
+                    {
+                        MessageBox.Show("Data de vencimento da ficha inválida", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txt_vencimento.Text = NOperacao.DataVencimento();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Data de vencimento da ficha inválida", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txt_vencimento.Text = NOperacao.DataVencimento();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Data de vencimento da ficha inválida", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txt_vencimento.Text = NOperacao.DataVencimento();
+            }
+            
+            
+
         }
 
         private void txt_dinheiro_KeyUp(object sender, KeyEventArgs e)

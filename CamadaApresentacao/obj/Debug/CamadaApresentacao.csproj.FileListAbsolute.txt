@@ -46,3 +46,4 @@ C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_
 C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formEditarCliente.resources
 C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formMensagemCadastroCliente.resources
 C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formMensagemClienteDeletado.resources
+C:\Users\Matheus\Desktop\Matheus\Projetos\C#\Controle_e_gerenciamento_de_vendas_e_produtos\CamadaApresentacao\obj\Debug\CamadaApresentacao.formConfiguracao.resources

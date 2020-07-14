@@ -76,5 +76,16 @@ namespace CamadaNegocios
             
             return Cliente.carregarDadosCliente(Cliente, operacao);
         }
+
+        public static bool VerificarExistencia(string nome)
+        {
+            DCliente Cliente = new DCliente();
+            Cliente.NomeCliente = nome;
+            if(Convert.ToInt32(Cliente.verificarExistencia(Cliente)) > 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
