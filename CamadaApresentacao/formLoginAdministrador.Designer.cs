@@ -43,6 +43,9 @@
             this.lbl_pergunta = new System.Windows.Forms.Label();
             this.btn_fechar = new System.Windows.Forms.PictureBox();
             this.btn_minimizar = new System.Windows.Forms.PictureBox();
+            this.lbl_mensagem_login = new System.Windows.Forms.Label();
+            this.lbl_mensagem_senha = new System.Windows.Forms.Label();
+            this.lbl_mensagem_incorreta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
@@ -94,6 +97,7 @@
             this.txt_login.Name = "txt_login";
             this.txt_login.Size = new System.Drawing.Size(387, 20);
             this.txt_login.TabIndex = 5;
+            this.txt_login.TextChanged += new System.EventHandler(this.txt_login_TextChanged);
             // 
             // txt_senha
             // 
@@ -102,6 +106,7 @@
             this.txt_senha.PasswordChar = '*';
             this.txt_senha.Size = new System.Drawing.Size(387, 20);
             this.txt_senha.TabIndex = 8;
+            this.txt_senha.TextChanged += new System.EventHandler(this.txt_senha_TextChanged);
             // 
             // panel2
             // 
@@ -194,12 +199,48 @@
             this.btn_minimizar.TabStop = false;
             this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
             // 
+            // lbl_mensagem_login
+            // 
+            this.lbl_mensagem_login.AutoSize = true;
+            this.lbl_mensagem_login.BackColor = System.Drawing.Color.Maroon;
+            this.lbl_mensagem_login.ForeColor = System.Drawing.Color.White;
+            this.lbl_mensagem_login.Location = new System.Drawing.Point(522, 159);
+            this.lbl_mensagem_login.Name = "lbl_mensagem_login";
+            this.lbl_mensagem_login.Size = new System.Drawing.Size(79, 13);
+            this.lbl_mensagem_login.TabIndex = 43;
+            this.lbl_mensagem_login.Text = "Digite seu login";
+            // 
+            // lbl_mensagem_senha
+            // 
+            this.lbl_mensagem_senha.AutoSize = true;
+            this.lbl_mensagem_senha.BackColor = System.Drawing.Color.Maroon;
+            this.lbl_mensagem_senha.ForeColor = System.Drawing.Color.White;
+            this.lbl_mensagem_senha.Location = new System.Drawing.Point(522, 225);
+            this.lbl_mensagem_senha.Name = "lbl_mensagem_senha";
+            this.lbl_mensagem_senha.Size = new System.Drawing.Size(86, 13);
+            this.lbl_mensagem_senha.TabIndex = 44;
+            this.lbl_mensagem_senha.Text = "Digite sua senha";
+            // 
+            // lbl_mensagem_incorreta
+            // 
+            this.lbl_mensagem_incorreta.AutoSize = true;
+            this.lbl_mensagem_incorreta.BackColor = System.Drawing.Color.Maroon;
+            this.lbl_mensagem_incorreta.ForeColor = System.Drawing.Color.White;
+            this.lbl_mensagem_incorreta.Location = new System.Drawing.Point(520, 280);
+            this.lbl_mensagem_incorreta.Name = "lbl_mensagem_incorreta";
+            this.lbl_mensagem_incorreta.Size = new System.Drawing.Size(124, 13);
+            this.lbl_mensagem_incorreta.TabIndex = 45;
+            this.lbl_mensagem_incorreta.Text = "Login ou senha incorreta";
+            // 
             // formCadastroAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(933, 501);
+            this.Controls.Add(this.lbl_mensagem_incorreta);
+            this.Controls.Add(this.lbl_mensagem_senha);
+            this.Controls.Add(this.lbl_mensagem_login);
             this.Controls.Add(this.btn_minimizar);
             this.Controls.Add(this.btn_fechar);
             this.Controls.Add(this.lbl_pergunta);
@@ -243,5 +284,8 @@
         private System.Windows.Forms.Label lbl_pergunta;
         private System.Windows.Forms.PictureBox btn_fechar;
         private System.Windows.Forms.PictureBox btn_minimizar;
+        private System.Windows.Forms.Label lbl_mensagem_login;
+        private System.Windows.Forms.Label lbl_mensagem_senha;
+        private System.Windows.Forms.Label lbl_mensagem_incorreta;
     }
 }

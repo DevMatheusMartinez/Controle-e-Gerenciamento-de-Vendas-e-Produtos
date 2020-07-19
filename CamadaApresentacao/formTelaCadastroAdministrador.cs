@@ -20,6 +20,9 @@ namespace CamadaApresentacao
         public formTelaCadastroAdministrador()
         {
             InitializeComponent();
+            lbl_mensagem_nome.Visible = false;
+            lbl_mensagem_usuario.Visible = false;
+            lbl_mensagem_senha.Visible = false;
         }
 
         private void btn_fechar_Click(object sender, EventArgs e)
@@ -31,20 +34,42 @@ namespace CamadaApresentacao
         {
             string resp = "";
             Conexao.criarBanco();
-            if (ValidarDados.conferirSenhas(txt_senha.Text, txt_confirmar.Text))
+            if(txt_nome.Text == "")
             {
-                resp = NAdministrador.InserirAdministrador(ValidarDados.arrumarTexto(txt_nome.Text), txt_login.Text, txt_senha.Text);
-                formMensagem form = new formMensagem();
-                form.ShowDialog();
-                Close();
+                lbl_mensagem_nome.Visible = true;
             }
             else
             {
-                txt_confirmar.ForeColor = Color.Red;
-                txt_senha.ForeColor = Color.Red;
-                txt_confirmar.Text = "Senha não se conferem.";
-                verifica = true;
-            }
+                if(txt_login.Text == "")
+                {
+                    lbl_mensagem_usuario.Visible = true;
+                }
+                else
+                {
+                    if(txt_senha.Text == "")
+                    {
+                        lbl_mensagem_senha.Visible = true;
+                    }
+                    else
+                    {
+                        if (ValidarDados.conferirSenhas(txt_senha.Text, txt_confirmar.Text))
+                        {
+                            resp = NAdministrador.InserirAdministrador(ValidarDados.arrumarTexto(txt_nome.Text), txt_login.Text, txt_senha.Text);
+                            formMensagem form = new formMensagem();
+                            form.ShowDialog();
+                            Close();
+                        }
+                        else
+                        {
+                            txt_confirmar.ForeColor = Color.Red;
+                            txt_senha.ForeColor = Color.Red;
+                            txt_confirmar.PasswordChar = '\u0000';
+                            txt_confirmar.Text = "Senhas não são iguais.";
+                            verifica = true;
+                        }
+                    }
+                }
+            } 
         }
 
         private void txt_nome_KeyPress(object sender, KeyPressEventArgs e)
@@ -63,6 +88,7 @@ namespace CamadaApresentacao
                 txt_senha.Text = "";
                 txt_confirmar.ForeColor = Color.Black;
                 txt_senha.ForeColor = Color.Black;
+                txt_confirmar.PasswordChar = '*';
                 verifica = false;
             }
         }
@@ -75,6 +101,7 @@ namespace CamadaApresentacao
                 txt_senha.Text = "";
                 txt_confirmar.ForeColor = Color.Black;
                 txt_senha.ForeColor = Color.Black;
+                txt_confirmar.PasswordChar = '*';
                 verifica = false;
             }
         }
@@ -85,6 +112,21 @@ namespace CamadaApresentacao
             txt_login.Text = "";
             txt_nome.Text = "";
             txt_senha.Text = "";
+        }
+
+        private void txt_nome_TextChanged(object sender, EventArgs e)
+        {
+            lbl_mensagem_nome.Visible = false;
+        }
+
+        private void txt_login_TextChanged(object sender, EventArgs e)
+        {
+            lbl_mensagem_usuario.Visible = false;
+        }
+
+        private void txt_senha_TextChanged(object sender, EventArgs e)
+        {
+            lbl_mensagem_senha.Visible = false;
         }
     }
 }

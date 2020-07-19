@@ -46,6 +46,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbl_nome = new System.Windows.Forms.Label();
             this.btn_fechar = new System.Windows.Forms.PictureBox();
+            this.lbl_mensagem_nome = new System.Windows.Forms.Label();
+            this.lbl_mensagem_usuario = new System.Windows.Forms.Label();
+            this.lbl_mensagem_senha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +118,7 @@
             this.txt_senha.Size = new System.Drawing.Size(387, 20);
             this.txt_senha.TabIndex = 17;
             this.txt_senha.Click += new System.EventHandler(this.txt_senha_Click);
+            this.txt_senha.TextChanged += new System.EventHandler(this.txt_senha_TextChanged);
             // 
             // panel1
             // 
@@ -163,6 +167,7 @@
             this.txt_login.Name = "txt_login";
             this.txt_login.Size = new System.Drawing.Size(387, 20);
             this.txt_login.TabIndex = 29;
+            this.txt_login.TextChanged += new System.EventHandler(this.txt_login_TextChanged);
             // 
             // panel3
             // 
@@ -191,6 +196,7 @@
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(387, 20);
             this.txt_nome.TabIndex = 26;
+            this.txt_nome.TextChanged += new System.EventHandler(this.txt_nome_TextChanged);
             this.txt_nome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nome_KeyPress);
             // 
             // panel4
@@ -224,12 +230,48 @@
             this.btn_fechar.TabStop = false;
             this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
             // 
+            // lbl_mensagem_nome
+            // 
+            this.lbl_mensagem_nome.AutoSize = true;
+            this.lbl_mensagem_nome.BackColor = System.Drawing.Color.Maroon;
+            this.lbl_mensagem_nome.ForeColor = System.Drawing.Color.White;
+            this.lbl_mensagem_nome.Location = new System.Drawing.Point(628, 179);
+            this.lbl_mensagem_nome.Name = "lbl_mensagem_nome";
+            this.lbl_mensagem_nome.Size = new System.Drawing.Size(129, 13);
+            this.lbl_mensagem_nome.TabIndex = 42;
+            this.lbl_mensagem_nome.Text = "Digite seu nome completo";
+            // 
+            // lbl_mensagem_usuario
+            // 
+            this.lbl_mensagem_usuario.AutoSize = true;
+            this.lbl_mensagem_usuario.BackColor = System.Drawing.Color.Maroon;
+            this.lbl_mensagem_usuario.ForeColor = System.Drawing.Color.White;
+            this.lbl_mensagem_usuario.Location = new System.Drawing.Point(628, 244);
+            this.lbl_mensagem_usuario.Name = "lbl_mensagem_usuario";
+            this.lbl_mensagem_usuario.Size = new System.Drawing.Size(135, 13);
+            this.lbl_mensagem_usuario.TabIndex = 43;
+            this.lbl_mensagem_usuario.Text = "Digite seu nome de usuario";
+            // 
+            // lbl_mensagem_senha
+            // 
+            this.lbl_mensagem_senha.AutoSize = true;
+            this.lbl_mensagem_senha.BackColor = System.Drawing.Color.Maroon;
+            this.lbl_mensagem_senha.ForeColor = System.Drawing.Color.White;
+            this.lbl_mensagem_senha.Location = new System.Drawing.Point(628, 311);
+            this.lbl_mensagem_senha.Name = "lbl_mensagem_senha";
+            this.lbl_mensagem_senha.Size = new System.Drawing.Size(135, 13);
+            this.lbl_mensagem_senha.TabIndex = 44;
+            this.lbl_mensagem_senha.Text = "Digite sua senha para login";
+            // 
             // formTelaCadastroAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(933, 501);
+            this.Controls.Add(this.lbl_mensagem_senha);
+            this.Controls.Add(this.lbl_mensagem_usuario);
+            this.Controls.Add(this.lbl_mensagem_nome);
             this.Controls.Add(this.btn_fechar);
             this.Controls.Add(this.txt_login);
             this.Controls.Add(this.panel3);
@@ -276,5 +318,8 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lbl_nome;
         private System.Windows.Forms.PictureBox btn_fechar;
+        private System.Windows.Forms.Label lbl_mensagem_nome;
+        private System.Windows.Forms.Label lbl_mensagem_usuario;
+        private System.Windows.Forms.Label lbl_mensagem_senha;
     }
 }

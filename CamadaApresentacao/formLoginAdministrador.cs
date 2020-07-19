@@ -16,6 +16,9 @@ namespace CamadaApresentacao
         public formCadastroAdministrador()
         {
             InitializeComponent();
+            lbl_mensagem_login.Visible = false;
+            lbl_mensagem_senha.Visible = false;
+            lbl_mensagem_incorreta.Visible = false;
         }
 
         private void formCadastroAdministrador_Load(object sender, EventArgs e)
@@ -44,19 +47,47 @@ namespace CamadaApresentacao
 
         private void btn_login_Click(object sender, EventArgs e)
         {
+
             ControleLogin controle = new ControleLogin();
             controle.Acessar(txt_login.Text, txt_senha.Text);
-            if (controle.tem)
+
+            if(txt_login.Text == "")
             {
-                int id = Convert.ToInt32(NAdministrador.carregarIdAdministrador(txt_login.Text));
-                formPrincipal form = new formPrincipal(id);
-                form.Show();
-                this.Hide();
+                lbl_mensagem_login.Visible = true;
             }
             else
             {
-
+                if(txt_senha.Text == "")
+                {
+                    lbl_mensagem_senha.Visible = true;
+                }
+                else
+                {
+                    if (controle.tem)
+                    {
+                        int id = Convert.ToInt32(NAdministrador.carregarIdAdministrador(txt_login.Text));
+                        formPrincipal form = new formPrincipal(id);
+                        form.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        lbl_mensagem_incorreta.Visible = true;
+                    }
+                }
             }
+        }
+
+        private void txt_login_TextChanged(object sender, EventArgs e)
+        {
+            lbl_mensagem_login.Visible = false;
+            lbl_mensagem_incorreta.Visible = false;
+        }
+
+        private void txt_senha_TextChanged(object sender, EventArgs e)
+        {
+            lbl_mensagem_senha.Visible = false;
+            lbl_mensagem_incorreta.Visible = false;
         }
     }
 }
