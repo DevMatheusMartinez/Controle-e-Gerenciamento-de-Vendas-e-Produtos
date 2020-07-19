@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -141,6 +144,33 @@ namespace CamadaNegocios
             }
         }
 
+        public static void criarBackupAgora()
+        {
+            using (SQLiteConnection source = new SQLiteConnection(String.Format("Data Source = {0}", "Banco.db")))
+            using (SQLiteConnection destination = new SQLiteConnection(String.Format("Data Source = {0}", "Backup\\Bancobackup - " + NOperacao.DataAtual().Replace("/", ".") + ".db")))
+            {
+                source.Open();
+                destination.Open();
+                source.BackupDatabase(destination, "main", "main", -1, null, -1);
+            }
 
+            string pasta = Path.GetDirectoryName(Application.ExecutablePath) + @"\Backup\";
+            if (!Directory.Exists(pasta))
+            {
+                Directory.CreateDirectory(pasta);
+            }
+            Process.Start("explorer.exe", pasta);
+        }
+
+        public static void criarBackupProgramado()
+        {
+            using (SQLiteConnection source = new SQLiteConnection(String.Format("Data Source = {0}", "Banco.db")))
+            using (SQLiteConnection destination = new SQLiteConnection(String.Format("Data Source = {0}", "Backup\\Bancobackup - " + NOperacao.DataAtual().Replace("/", ".") + ".db")))
+            {
+                source.Open();
+                destination.Open();
+                source.BackupDatabase(destination, "main", "main", -1, null, -1);
+            }
+        }
     }
 }

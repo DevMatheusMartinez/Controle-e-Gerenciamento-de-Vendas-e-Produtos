@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using CamadaNegocios;
 
 namespace CamadaApresentacao
 {
@@ -15,6 +16,10 @@ namespace CamadaApresentacao
     {
         bool protecao = false;
         DialogResult resultado;
+        public Timer timerverificador = new Timer();
+        public string periodo = "", horario = "";
+        public DateTime data;
+        public int diabackup;
         public formPrincipal()
         {
             InitializeComponent();
@@ -24,6 +29,9 @@ namespace CamadaApresentacao
         {
             InitializeComponent();
             lbl_nome.Text = nome;
+            timerverificador.Interval = 1;
+            timerverificador.Enabled = false;
+            timerverificador.Tick += new EventHandler(verificadorBackup_Tick);
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -155,7 +163,7 @@ namespace CamadaApresentacao
         {
             if (!protecao)
             {
-                AbrirFormInPanel(new formConfiguracao());
+                AbrirFormInPanel(new formConfiguracao(this));
             }
             else
             {
@@ -163,7 +171,53 @@ namespace CamadaApresentacao
                 if (resultado == DialogResult.Yes)
                 {
                     protecao = false;
-                    AbrirFormInPanel(new formConfiguracao());
+                    AbrirFormInPanel(new formConfiguracao(this));
+                }
+            }
+        }
+
+        private void verificadorBackup_Tick(object sender, EventArgs e)
+        {
+            if(periodo == "Anual")
+            {
+                if(DateTime.Compare(DateTime.Now, data) > 0)
+                {
+                    NOperacao.criarBackupProgramado();
+                    data = data.AddYears(1);
+                }
+            }
+            else if(periodo == "Mensal")
+            {
+                string[] tempo = new string[3];
+                tempo = horario.Split(':');
+
+                int hora = Convert.ToInt32(tempo[0]);
+                int minuto = Convert.ToInt32(tempo[1]);
+                int segundo = Convert.ToInt32(tempo[2]);
+
+                int dia = Convert.ToInt32(DateTime.Today.Day);
+                TimeSpan horarioatual = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                TimeSpan horariobackup = new TimeSpan(hora, minuto, segundo);
+                if(dia == diabackup && (TimeSpan.Compare(horarioatual, horariobackup) == 0))
+                {
+                    NOperacao.criarBackupProgramado();
+                }
+            }
+            else
+            {
+                string[] tempo = new string[3];
+                tempo = horario.Split(':');
+
+                int hora = Convert.ToInt32(tempo[0]);
+                int minuto = Convert.ToInt32(tempo[1]);
+                int segundo = Convert.ToInt32(tempo[2]);
+
+                int dia = Convert.ToInt32(DateTime.Today.Day);
+                TimeSpan horarioatual = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                TimeSpan horariobackup = new TimeSpan(hora, minuto, segundo);
+                if (TimeSpan.Compare(horarioatual, horariobackup) == 0)
+                {
+                    NOperacao.criarBackupProgramado();
                 }
             }
         }

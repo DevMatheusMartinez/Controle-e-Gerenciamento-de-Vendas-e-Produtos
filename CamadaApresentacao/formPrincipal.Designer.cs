@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPrincipal));
             this.lbl_nome = new System.Windows.Forms.Label();
             this.menu_vertical = new System.Windows.Forms.Panel();
@@ -45,6 +46,7 @@
             this.btn_fechar = new System.Windows.Forms.PictureBox();
             this.button_menu = new System.Windows.Forms.PictureBox();
             this.pn_conteudo = new System.Windows.Forms.Panel();
+            this.verificadorBackup = new System.Windows.Forms.Timer(this.components);
             this.menu_vertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -273,6 +275,10 @@
             this.pn_conteudo.Size = new System.Drawing.Size(1523, 1050);
             this.pn_conteudo.TabIndex = 3;
             // 
+            // verificadorBackup
+            // 
+            this.verificadorBackup.Tick += new System.EventHandler(this.verificadorBackup_Tick);
+            // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,5 +324,6 @@
         private System.Windows.Forms.Button btn_ficha;
         private System.Windows.Forms.Button btn_cliente;
         private System.Windows.Forms.Button btn_produto;
+        private System.Windows.Forms.Timer verificadorBackup;
     }
 }
