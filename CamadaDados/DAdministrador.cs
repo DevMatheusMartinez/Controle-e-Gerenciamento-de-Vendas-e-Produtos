@@ -130,27 +130,27 @@ namespace CamadaDados
         public string editarSenhaAdministrador(DAdministrador administrador)
         {
             string resp = "";
-            SqlConnection sqlCon = new SqlConnection();
+            SQLiteConnection sqlCon = new SQLiteConnection();
 
             try
             {
                 sqlCon.ConnectionString = Conexao.Cn;
                 sqlCon.Open();
 
-                SqlCommand sqlCmd = new SqlCommand();
+                SQLiteCommand sqlCmd = new SQLiteCommand();
                 sqlCmd.Connection = sqlCon;
-                sqlCmd.CommandText = "speditar_senha_administrador";
-                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "UPDATE ADMINISTRADOR SET SENHA_ADMINISTRADOR = @SENHA_ADMINISTRADOR WHERE ID_ADMINISTRADOR = @ID_ADMINISTRADOR";
+                sqlCmd.CommandType = CommandType.Text;
 
-                SqlParameter parIdAdministrador = new SqlParameter();
-                parIdAdministrador.ParameterName = "@id";
-                parIdAdministrador.SqlDbType = SqlDbType.Int;
+                SQLiteParameter parIdAdministrador = new SQLiteParameter();
+                parIdAdministrador.ParameterName = "@ID_ADMINISTRADOR";
+                parIdAdministrador.DbType = DbType.Int32;
                 parIdAdministrador.Value = administrador.Id;
                 sqlCmd.Parameters.Add(parIdAdministrador);
 
-                SqlParameter parSenha = new SqlParameter();
-                parSenha.ParameterName = "@senha";
-                parSenha.SqlDbType = SqlDbType.VarChar;
+                SQLiteParameter parSenha = new SQLiteParameter();
+                parSenha.ParameterName = "@SENHA_ADMINISTRADOR";
+                parSenha.DbType = DbType.String;
                 parSenha.Size = 45;
                 parSenha.Value = administrador.Senha;
                 sqlCmd.Parameters.Add(parSenha);
@@ -166,6 +166,82 @@ namespace CamadaDados
                 if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
             }
             return resp;
+        }
+
+        public string carregarSenhaAdministrador(DAdministrador administrador)
+        {
+            string senha = "";
+            SQLiteConnection sqlCon = new SQLiteConnection();
+            try
+            {
+                sqlCon.ConnectionString = Conexao.Cn;
+                sqlCon.Open();
+
+                SQLiteCommand sqlCmd = new SQLiteCommand();
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = "SELECT * FROM ADMINISTRADOR WHERE ID_ADMINISTRADOR = @ID_ADMINISTRADOR";
+                sqlCmd.CommandType = CommandType.Text;
+                
+                SQLiteParameter parIdAdministrador = new SQLiteParameter();
+                parIdAdministrador.ParameterName = "@ID_ADMINISTRADOR";
+                parIdAdministrador.DbType = DbType.Int32;
+                parIdAdministrador.Value = administrador.Id;
+                sqlCmd.Parameters.Add(parIdAdministrador);
+
+                SQLiteDataReader leitor = sqlCmd.ExecuteReader();
+
+                while (leitor.Read())
+                {
+                    senha = (leitor["SENHA_ADMINISTRADOR"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                senha = ex.Message;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return senha;
+        }
+
+        public string carregarIdAdministrador(DAdministrador administrador)
+        {
+            string id = "";
+            SQLiteConnection sqlCon = new SQLiteConnection();
+            try
+            {
+                sqlCon.ConnectionString = Conexao.Cn;
+                sqlCon.Open();
+
+                SQLiteCommand sqlCmd = new SQLiteCommand();
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = "SELECT * FROM ADMINISTRADOR WHERE LOGIN_ADMINISTRADOR = @LOGIN_ADMINISTRADOR";
+                sqlCmd.CommandType = CommandType.Text;
+
+                SQLiteParameter parIdAdministrador = new SQLiteParameter();
+                parIdAdministrador.ParameterName = "@LOGIN_ADMINISTRADOR";
+                parIdAdministrador.DbType = DbType.String;
+                parIdAdministrador.Value = administrador.Login;
+                sqlCmd.Parameters.Add(parIdAdministrador);
+
+                SQLiteDataReader leitor = sqlCmd.ExecuteReader();
+
+                while (leitor.Read())
+                {
+                    id = (leitor["ID_ADMINISTRADOR"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                id = ex.Message;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return id;
         }
     }
 }

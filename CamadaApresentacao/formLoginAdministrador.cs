@@ -48,7 +48,8 @@ namespace CamadaApresentacao
             controle.Acessar(txt_login.Text, txt_senha.Text);
             if (controle.tem)
             {
-                formPrincipal form = new formPrincipal("teste");
+                int id = Convert.ToInt32(NAdministrador.carregarIdAdministrador(txt_login.Text));
+                formPrincipal form = new formPrincipal(id);
                 form.Show();
                 this.Hide();
             }

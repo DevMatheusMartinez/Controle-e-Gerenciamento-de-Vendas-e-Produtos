@@ -24,7 +24,20 @@ namespace CamadaNegocios
             Administrador.Id = id;
             Administrador.Senha = senha;
             return Administrador.editarSenhaAdministrador(Administrador);
+        }
 
+        public static string carregarSenhaAdministrador(int id)
+        {
+            DAdministrador Administrador = new DAdministrador();
+            Administrador.Id = id;
+            return Administrador.carregarSenhaAdministrador(Administrador);
+        }
+
+        public static string carregarIdAdministrador(string login)
+        {
+            DAdministrador Administrador = new DAdministrador();
+            Administrador.Login = login;
+            return Administrador.carregarIdAdministrador(Administrador);
         }
 
     }

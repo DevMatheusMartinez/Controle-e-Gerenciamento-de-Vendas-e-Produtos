@@ -20,15 +20,12 @@ namespace CamadaApresentacao
         public string periodo = "", horario = "";
         public DateTime data;
         public int diabackup;
-        public formPrincipal()
-        {
-            InitializeComponent();
-        }
+        public int id;
 
-        public formPrincipal(string nome)
+        public formPrincipal(int _id)
         {
             InitializeComponent();
-            lbl_nome.Text = nome;
+            id = _id;
             timerverificador.Interval = 1;
             timerverificador.Enabled = false;
             timerverificador.Tick += new EventHandler(verificadorBackup_Tick);
@@ -163,7 +160,7 @@ namespace CamadaApresentacao
         {
             if (!protecao)
             {
-                AbrirFormInPanel(new formConfiguracao(this));
+                AbrirFormInPanel(new formConfiguracao(this, id));
             }
             else
             {
@@ -171,7 +168,7 @@ namespace CamadaApresentacao
                 if (resultado == DialogResult.Yes)
                 {
                     protecao = false;
-                    AbrirFormInPanel(new formConfiguracao(this));
+                    AbrirFormInPanel(new formConfiguracao(this, id));
                 }
             }
         }

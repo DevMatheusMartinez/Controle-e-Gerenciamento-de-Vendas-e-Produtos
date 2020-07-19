@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,8 @@ namespace CamadaApresentacao
     public partial class formConfiguracao : Form
     {
         formPrincipal _pai;
-        public formConfiguracao(formPrincipal pai)
+        int _id;
+        public formConfiguracao(formPrincipal pai, int id)
         {
             InitializeComponent();
             txt_dia.MaxLength = 2;
@@ -27,6 +29,7 @@ namespace CamadaApresentacao
             comboMes.SelectedIndex = 0;
             txt_horario.Enabled = false;
             _pai = pai;
+            _id = id;
         }
 
         private void btn_backup_agora_Click(object sender, EventArgs e)
@@ -274,6 +277,36 @@ namespace CamadaApresentacao
                 Directory.CreateDirectory(pasta);
             }
             Process.Start("explorer.exe", pasta);
+        }
+
+        private void btn_mudarsenha_Click(object sender, EventArgs e)
+        {
+            if(txt_senhaatual.Text == "")
+            {
+                MessageBox.Show("Digite sua senha atual", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (txt_senhaatual.Text == NAdministrador.carregarSenhaAdministrador(_id))
+                {
+                    if (txt_novasenha.Text == "")
+                    {
+                        MessageBox.Show("Digite sua senha nova", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        string resp = "";
+                        resp = NAdministrador.editarSenhaAdministrador(_id, txt_novasenha.Text);
+                        MessageBox.Show("Senha editada com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Senha atual inválida", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            
         }
     }
 }

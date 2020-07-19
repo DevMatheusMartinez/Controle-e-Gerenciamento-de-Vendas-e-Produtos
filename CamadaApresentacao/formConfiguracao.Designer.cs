@@ -43,7 +43,14 @@
             this.checkDiario = new System.Windows.Forms.CheckBox();
             this.lbl_usuario = new System.Windows.Forms.Label();
             this.btn_backup_agora = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_novasenha = new System.Windows.Forms.TextBox();
+            this.btn_mudarsenha = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_senhaatual = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -245,12 +252,78 @@
             this.btn_backup_agora.UseVisualStyleBackColor = false;
             this.btn_backup_agora.Click += new System.EventHandler(this.btn_backup_agora_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txt_novasenha);
+            this.groupBox2.Controls.Add(this.btn_mudarsenha);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txt_senhaatual);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(604, 56);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(564, 244);
+            this.groupBox2.TabIndex = 45;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Trocar senha";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(20, 92);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 23);
+            this.label5.TabIndex = 120;
+            this.label5.Text = "Senha nova:";
+            // 
+            // txt_novasenha
+            // 
+            this.txt_novasenha.Location = new System.Drawing.Point(24, 118);
+            this.txt_novasenha.Name = "txt_novasenha";
+            this.txt_novasenha.Size = new System.Drawing.Size(291, 26);
+            this.txt_novasenha.TabIndex = 119;
+            // 
+            // btn_mudarsenha
+            // 
+            this.btn_mudarsenha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_mudarsenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.btn_mudarsenha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_mudarsenha.ForeColor = System.Drawing.Color.White;
+            this.btn_mudarsenha.Location = new System.Drawing.Point(34, 181);
+            this.btn_mudarsenha.Name = "btn_mudarsenha";
+            this.btn_mudarsenha.Size = new System.Drawing.Size(497, 28);
+            this.btn_mudarsenha.TabIndex = 118;
+            this.btn_mudarsenha.Text = "Trocar senha";
+            this.btn_mudarsenha.UseVisualStyleBackColor = false;
+            this.btn_mudarsenha.Click += new System.EventHandler(this.btn_mudarsenha_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(20, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(116, 23);
+            this.label7.TabIndex = 112;
+            this.label7.Text = "Senha atual:";
+            // 
+            // txt_senhaatual
+            // 
+            this.txt_senhaatual.Location = new System.Drawing.Point(24, 52);
+            this.txt_senhaatual.Name = "txt_senhaatual";
+            this.txt_senhaatual.Size = new System.Drawing.Size(291, 26);
+            this.txt_senhaatual.TabIndex = 111;
+            // 
             // formConfiguracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1239, 600);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -258,6 +331,8 @@
             this.Text = "formConfiguracao";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,5 +355,11 @@
         private System.Windows.Forms.Button btn_confirmar;
         private System.Windows.Forms.MaskedTextBox txt_horario;
         private System.Windows.Forms.ComboBox comboMes;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_novasenha;
+        private System.Windows.Forms.Button btn_mudarsenha;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_senhaatual;
     }
 }
