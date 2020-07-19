@@ -29,6 +29,7 @@ namespace CamadaApresentacao
             timerverificador.Interval = 1;
             timerverificador.Enabled = false;
             timerverificador.Tick += new EventHandler(verificadorBackup_Tick);
+            menu_vertical.Width = 234;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -42,14 +43,7 @@ namespace CamadaApresentacao
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if(menu_vertical.Width == 234)
-            {
-                menu_vertical.Width = 61;
-            }
-            else
-            {
-                menu_vertical.Width = 234;
-            }
+
         }
 
         private void btn_fechar_Click(object sender, EventArgs e)

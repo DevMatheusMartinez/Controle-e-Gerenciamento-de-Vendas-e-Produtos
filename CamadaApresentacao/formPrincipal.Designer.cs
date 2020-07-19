@@ -44,7 +44,6 @@
             this.btn_minimizar = new System.Windows.Forms.PictureBox();
             this.btn_maximizar = new System.Windows.Forms.PictureBox();
             this.btn_fechar = new System.Windows.Forms.PictureBox();
-            this.button_menu = new System.Windows.Forms.PictureBox();
             this.pn_conteudo = new System.Windows.Forms.Panel();
             this.verificadorBackup = new System.Windows.Forms.Timer(this.components);
             this.menu_vertical.SuspendLayout();
@@ -55,7 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.button_menu)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_nome
@@ -193,7 +191,6 @@
             this.titulo.Controls.Add(this.btn_minimizar);
             this.titulo.Controls.Add(this.btn_maximizar);
             this.titulo.Controls.Add(this.btn_fechar);
-            this.titulo.Controls.Add(this.button_menu);
             this.titulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.titulo.Location = new System.Drawing.Point(61, 0);
             this.titulo.Name = "titulo";
@@ -254,18 +251,6 @@
             this.btn_fechar.TabStop = false;
             this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
             // 
-            // button_menu
-            // 
-            this.button_menu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_menu.Image = ((System.Drawing.Image)(resources.GetObject("button_menu.Image")));
-            this.button_menu.Location = new System.Drawing.Point(9, 12);
-            this.button_menu.Name = "button_menu";
-            this.button_menu.Size = new System.Drawing.Size(35, 35);
-            this.button_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.button_menu.TabIndex = 0;
-            this.button_menu.TabStop = false;
-            this.button_menu.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // pn_conteudo
             // 
             this.pn_conteudo.BackColor = System.Drawing.Color.White;
@@ -291,6 +276,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formPrincipal";
             this.Text = "formPrincipal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.formPrincipal_Load);
             this.menu_vertical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -300,7 +286,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_maximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.button_menu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,7 +296,6 @@
         private System.Windows.Forms.Label lbl_nome;
         private System.Windows.Forms.Panel menu_vertical;
         private System.Windows.Forms.Panel titulo;
-        private System.Windows.Forms.PictureBox button_menu;
         private System.Windows.Forms.Panel pn_conteudo;
         private System.Windows.Forms.PictureBox btn_restaurar;
         private System.Windows.Forms.PictureBox btn_minimizar;
