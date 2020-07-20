@@ -77,7 +77,7 @@
             this.menu_vertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.menu_vertical.Location = new System.Drawing.Point(0, 0);
             this.menu_vertical.Name = "menu_vertical";
-            this.menu_vertical.Size = new System.Drawing.Size(61, 1100);
+            this.menu_vertical.Size = new System.Drawing.Size(231, 1100);
             this.menu_vertical.TabIndex = 1;
             // 
             // btn_ferramentas
@@ -93,7 +93,7 @@
             this.btn_ferramentas.Name = "btn_ferramentas";
             this.btn_ferramentas.Size = new System.Drawing.Size(228, 95);
             this.btn_ferramentas.TabIndex = 10;
-            this.btn_ferramentas.Text = "      Ferramentas";
+            this.btn_ferramentas.Text = "      Configuração";
             this.btn_ferramentas.UseVisualStyleBackColor = true;
             this.btn_ferramentas.Click += new System.EventHandler(this.btn_ferramentas_Click);
             // 
@@ -142,6 +142,7 @@
             this.btn_produto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_produto.Location = new System.Drawing.Point(0, 192);
             this.btn_produto.Name = "btn_produto";
+            this.btn_produto.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btn_produto.Size = new System.Drawing.Size(228, 95);
             this.btn_produto.TabIndex = 7;
             this.btn_produto.Text = "      Produtos";
@@ -192,9 +193,9 @@
             this.titulo.Controls.Add(this.btn_maximizar);
             this.titulo.Controls.Add(this.btn_fechar);
             this.titulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titulo.Location = new System.Drawing.Point(61, 0);
+            this.titulo.Location = new System.Drawing.Point(231, 0);
             this.titulo.Name = "titulo";
-            this.titulo.Size = new System.Drawing.Size(1523, 50);
+            this.titulo.Size = new System.Drawing.Size(1353, 50);
             this.titulo.TabIndex = 2;
             this.titulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titulo_MouseDown);
             // 
@@ -203,7 +204,7 @@
             this.btn_restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_restaurar.Image = ((System.Drawing.Image)(resources.GetObject("btn_restaurar.Image")));
-            this.btn_restaurar.Location = new System.Drawing.Point(1468, 5);
+            this.btn_restaurar.Location = new System.Drawing.Point(1298, 5);
             this.btn_restaurar.Name = "btn_restaurar";
             this.btn_restaurar.Size = new System.Drawing.Size(20, 20);
             this.btn_restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -217,7 +218,7 @@
             this.btn_minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_minimizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_minimizar.Image")));
-            this.btn_minimizar.Location = new System.Drawing.Point(1442, 5);
+            this.btn_minimizar.Location = new System.Drawing.Point(1272, 5);
             this.btn_minimizar.Name = "btn_minimizar";
             this.btn_minimizar.Size = new System.Drawing.Size(20, 20);
             this.btn_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -230,7 +231,7 @@
             this.btn_maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_maximizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_maximizar.Image")));
-            this.btn_maximizar.Location = new System.Drawing.Point(1468, 5);
+            this.btn_maximizar.Location = new System.Drawing.Point(1298, 5);
             this.btn_maximizar.Name = "btn_maximizar";
             this.btn_maximizar.Size = new System.Drawing.Size(20, 20);
             this.btn_maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -243,7 +244,7 @@
             this.btn_fechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_fechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_fechar.Image = ((System.Drawing.Image)(resources.GetObject("btn_fechar.Image")));
-            this.btn_fechar.Location = new System.Drawing.Point(1494, 5);
+            this.btn_fechar.Location = new System.Drawing.Point(1324, 5);
             this.btn_fechar.Name = "btn_fechar";
             this.btn_fechar.Size = new System.Drawing.Size(20, 20);
             this.btn_fechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -255,9 +256,9 @@
             // 
             this.pn_conteudo.BackColor = System.Drawing.Color.White;
             this.pn_conteudo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_conteudo.Location = new System.Drawing.Point(61, 50);
+            this.pn_conteudo.Location = new System.Drawing.Point(231, 50);
             this.pn_conteudo.Name = "pn_conteudo";
-            this.pn_conteudo.Size = new System.Drawing.Size(1523, 1050);
+            this.pn_conteudo.Size = new System.Drawing.Size(1353, 1050);
             this.pn_conteudo.TabIndex = 3;
             // 
             // verificadorBackup

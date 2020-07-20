@@ -30,6 +30,7 @@ namespace CamadaApresentacao
             timerverificador.Enabled = false;
             timerverificador.Tick += new EventHandler(verificadorBackup_Tick);
             menu_vertical.Width = 234;
+            AbrirFormInPanel(new formFicha());
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
