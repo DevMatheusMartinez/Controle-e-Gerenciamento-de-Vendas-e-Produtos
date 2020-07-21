@@ -202,23 +202,29 @@ namespace CamadaApresentacao
 
         private void btn_salvar_Click(object sender, EventArgs e)
         {
-            cliente = NCliente.CarregarDadosCliente(comboCliente.Text, "NOME_CLIENTE");
-            decimal troco = Convert.ToDecimal(txt_troco.Text);
-            decimal dinheiro = Convert.ToDecimal(txt_dinheiro.Text);
-            if(precolista.Count > 0)
+            if(comboCliente.Text != "PADRÃO")
             {
-                formMensagemCaixa form = new formMensagemCaixa(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), Convert.ToString(comboPagamento.SelectedValue), this, lista_carrinho);
-                form.ShowDialog();
-                if (decisao)
+                cliente = NCliente.CarregarDadosCliente(comboCliente.Text, "NOME_CLIENTE");
+                decimal troco = Convert.ToDecimal(txt_troco.Text);
+                decimal dinheiro = Convert.ToDecimal(txt_dinheiro.Text);
+                if (precolista.Count > 0)
                 {
-                    _pai.AbrirFormInPanel(new formFinalizacaoVenda(_pai));
+                    formMensagemCaixa form = new formMensagemCaixa(precototallista, txt_dataPedido.Text, txt_vencimento.Text, Convert.ToInt32(cliente[0]), Convert.ToString(comboPagamento.SelectedValue), this, lista_carrinho);
+                    form.ShowDialog();
+                    if (decisao)
+                    {
+                        _pai.AbrirFormInPanel(new formFinalizacaoVenda(_pai));
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum item no carrinho", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Nenhum item no carrinho", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("O cliente precisa de um cadastro para salvar a venda", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
         private void btn_finalizar_Click(object sender, EventArgs e)
@@ -325,6 +331,14 @@ namespace CamadaApresentacao
             
             
 
+        }
+
+        private void btn_cliente_Click(object sender, EventArgs e)
+        {
+            formCadastrarCliente form = new formCadastrarCliente();
+            form.ShowDialog();
+            NCliente.preencherCBCliente(comboCliente);
+            comboCliente.SelectedIndex = 1;
         }
 
         private void txt_dinheiro_KeyUp(object sender, KeyEventArgs e)

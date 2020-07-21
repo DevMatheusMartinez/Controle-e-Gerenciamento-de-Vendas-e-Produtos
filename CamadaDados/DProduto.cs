@@ -401,7 +401,6 @@ namespace CamadaDados
             {
                 DtResultado = null;
             }
-
             return DtResultado;
         }
 
@@ -421,7 +420,7 @@ namespace CamadaDados
                 }
                 else
                 {
-                    sqlCmd.CommandText = "SELECT ID_PRODUTO, NOME_PRODUTO, CATEGORIA_PRODUTO, MARCA_PRODUTO, PRECO_PRODUTO FROM PRODUTO WHERE NOME_PRODUTO LIKE '%" +txt.Text+ "%'";
+                    sqlCmd.CommandText = "SELECT ID_PRODUTO, NOME_PRODUTO, PRECO_PRODUTO FROM PRODUTO WHERE NOME_PRODUTO LIKE '%" +txt.Text+ "%'";
                 }
                 
                 sqlCmd.CommandType = CommandType.Text;

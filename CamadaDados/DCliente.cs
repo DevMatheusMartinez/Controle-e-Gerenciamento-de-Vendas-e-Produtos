@@ -250,7 +250,7 @@ namespace CamadaDados
 
                 SQLiteCommand sqlcmd = new SQLiteCommand();
                 sqlcmd.Connection = sqlcon;
-                sqlcmd.CommandText = "SELECT * FROM CLIENTE";
+                sqlcmd.CommandText = "SELECT * FROM CLIENTE WHERE NOME_CLIENTE <> 'PADRÃO'";
                 sqlcmd.CommandType = CommandType.Text;
                 SQLiteDataAdapter sqldata = new SQLiteDataAdapter(sqlcmd);
                 sqldata.Fill(DtResultado);
@@ -273,7 +273,7 @@ namespace CamadaDados
 
                 SQLiteCommand sqlCmd = new SQLiteCommand();
                 sqlCmd.Connection = sqlCon;
-                sqlCmd.CommandText = "SELECT * FROM CLIENTE WHERE NOME_CLIENTE LIKE '%" + txt.Text + "%'";
+                sqlCmd.CommandText = "SELECT * FROM CLIENTE WHERE NOME_CLIENTE LIKE '%" + txt.Text + "%' AND NOME_CLIENTE <> 'PADRÃO'";
                 sqlCmd.CommandType = CommandType.Text;
 
                 SQLiteDataAdapter data = new SQLiteDataAdapter(sqlCmd);

@@ -145,7 +145,7 @@ namespace CamadaDados
 
         public static void inserirDadosPadraoCliente()
         {
-            string resp = "";
+            string quantidade = "";
             SQLiteConnection sqlCon = new SQLiteConnection();
 
             try
@@ -155,19 +155,49 @@ namespace CamadaDados
 
                 SQLiteCommand sqlCmd = new SQLiteCommand();
                 sqlCmd.Connection = sqlCon;
-                sqlCmd.CommandText = "INSERT INTO CLIENTE(NOME_CLIENTE) SELECT 'Selecionar Cliente' WHERE NOT EXISTS (SELECT 1 FROM CLIENTE WHERE NOME_CLIENTE = 'Selecionar Cliente');";
+                sqlCmd.CommandText = "SELECT COUNT(0) FROM CLIENTE WHERE NOME_CLIENTE = 'PADRÃO'";
                 sqlCmd.CommandType = CommandType.Text;
 
-                resp = sqlCmd.ExecuteNonQuery() == 1 ? "OK" : "Registro não foi inserido";
+                quantidade = Convert.ToString(sqlCmd.ExecuteScalar());
             }
             catch (Exception e)
             {
-                resp = e.Message;
+                quantidade = e.Message;
             }
             finally
             {
                 if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
             }
+
+            if(Convert.ToInt32(quantidade) == 0)
+            {
+                string resp;
+                SQLiteConnection sqlCon2 = new SQLiteConnection();
+
+                try
+                {
+                    sqlCon2.ConnectionString = Conexao.Cn;
+                    sqlCon2.Open();
+
+                    SQLiteCommand sqlCmd = new SQLiteCommand();
+                    sqlCmd.Connection = sqlCon2;
+                    sqlCmd.CommandText = "INSERT INTO CLIENTE(NOME_CLIENTE, CPF_CLIENTE) VALUES ('PADRÃO', '12345678910');";
+                    sqlCmd.CommandType = CommandType.Text;
+
+                    resp = sqlCmd.ExecuteNonQuery() == 1 ? "OK" : "Registro não foi inserido";
+                }
+                catch (Exception e)
+                {
+                    resp = e.Message;
+                }
+                finally
+                {
+                    if (sqlCon2.State == ConnectionState.Open) { sqlCon2.Close(); }
+                }
+            }
+
+
+            
         }
 
         public static string Cn = "Data Source =Banco.db";
