@@ -49,12 +49,13 @@ OBS: O sistema apenas registra a forma de pagamento, mas não há pagamento efet
 - o sistema faz a soma de todos os produtos adicionados no caixa, se a forma de pagamento for em dinheiro o sistema também calcula o troco.
 
 ## Tela Fichas
-
+![image](https://user-images.githubusercontent.com/54003486/88406130-9bc70c80-cda6-11ea-9975-76e7cdaef828.png)
 Na tela ficha o usuário poderá ver todas as suas vendas pendentes e pagas com suas datas de compra e vencimento e com os contatos do cliente.
 - As fichas pendentes poderão ser pagas nesta aba.
 
 ## Tela Configuração
-
+![image](https://user-images.githubusercontent.com/54003486/88406249-cadd7e00-cda6-11ea-8ea7-4a54f7d7b2e5.png)
+Na tela configuração o usuário podera programar o backup dos dados do sistema e trocar sua senha de usuário. 
 
 
 
