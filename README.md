@@ -3,35 +3,9 @@
 <p>Sistema de gerenciamento de vendas e produtos, que ajuda o varejista a organizar melhor suas vendas e produtos em uma interface atraente.
 (clique nas imagens para melhor resolução)</p>
 
-Sumário
-=================
-<!--ts-->
-   * [Descrição](# Controle e gerenciamento de vendas e produtos - versão BETA)
-   * [Login](## Tela de login)
-   * [Cadastro administrador](## Tela cadastro administrador)
-   * [Principal](## Tela Principal)
-   * [Lista de produtos](## Tela lista de produtos)
-   * [Lista de clientes](## Tela lista de clientes)
-   * [Caixa](## Tela caixa)
-   * [Ficha](## Tela Fichas)
-   * [Configuração](## Tela Configuração)
-<!--te-->
-
-Tabela de conteúdos
-=================
-<!--ts-->
-   * [Sobre](#Sobre)
-   * [Tabela de Conteudo](#tabela-de-conteudo)
-   * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
-      * [Pre Requisitos](#pre-requisitos)
-      * [Local files](#local-files)
-      * [Remote files](#remote-files)
-      * [Multiple files](#multiple-files)
-      * [Combo](#combo)
-   * [Tests](#testes)
-   * [Tecnologias](#tecnologias)
-<!--te-->
+<h4 align="center"> 
+	🚧  Versão: 🚀 Beta  🚧
+</h4>
 
 ## Tela de login
 ![image](https://user-images.githubusercontent.com/54003486/88189085-08a79e80-cc0f-11ea-8b8a-d14db6ececa0.png)
