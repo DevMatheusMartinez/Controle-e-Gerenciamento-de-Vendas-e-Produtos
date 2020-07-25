@@ -17,6 +17,22 @@ Sumário
    * [Configuração](## Tela Configuração)
 <!--te-->
 
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Sobre](#Sobre)
+   * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Instalação](#instalacao)
+   * [Como usar](#como-usar)
+      * [Pre Requisitos](#pre-requisitos)
+      * [Local files](#local-files)
+      * [Remote files](#remote-files)
+      * [Multiple files](#multiple-files)
+      * [Combo](#combo)
+   * [Tests](#testes)
+   * [Tecnologias](#tecnologias)
+<!--te-->
+
 ## Tela de login
 ![image](https://user-images.githubusercontent.com/54003486/88189085-08a79e80-cc0f-11ea-8b8a-d14db6ececa0.png)
 
