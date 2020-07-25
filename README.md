@@ -7,7 +7,7 @@
 	🚧  Versão: 🚀 Beta  🚧
 </h4>
 
-### Recursos
+### Recursos do sistema
 
 - [x] Cadastro de usuários
 - [x] CRUD de clientes
@@ -15,6 +15,13 @@
 - [x] Criação de backup dos dados do sistema
 - [ ] Aplicativo para clientes receberem notificações sobre suas fichas.
 - [ ] Aba para estastisticas de vendas diarias, mensais ou anuais.
+
+###Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [C#](https://docs.microsoft.com/pt-br/dotnet/csharp/)
+- [SQLITE](https://nodejs.org/en/)
 
 ## Tela de login
 ![image](https://user-images.githubusercontent.com/54003486/88189085-08a79e80-cc0f-11ea-8b8a-d14db6ececa0.png)
