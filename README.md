@@ -1,7 +1,7 @@
 # Controle e gerenciamento de vendas e produtos - versão BETA
 
-<p>Sistema de gerenciamento de vendas e produtos, que ajuda o varejista a organizar melhor suas vendas e produtos em uma interface atraente.</p>
-<p>(clique nas imagens para melhor resolução)</p>
+<p>Sistema de gerenciamento de vendas e produtos, que ajuda o varejista a organizar melhor suas vendas e produtos em uma interface atraente.
+(clique nas imagens para melhor resolução)</p>
 
 ## Tela de login
 ![image](https://user-images.githubusercontent.com/54003486/88189085-08a79e80-cc0f-11ea-8b8a-d14db6ececa0.png)
