@@ -7,7 +7,7 @@ Sumário
 =================
 <!--ts-->
    * [Descrição](#Controle e gerenciamento de vendas e produtos - versão BETA)
-   * [Login](## Tela de login)
+   * [Login](#Tela de login)
    * [Cadastro administrador](## Tela cadastro administrador)
    * [Principal](## Tela Principal)
    * [Lista de produtos](## Tela lista de produtos)
