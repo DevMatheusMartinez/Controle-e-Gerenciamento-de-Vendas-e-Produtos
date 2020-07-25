@@ -82,7 +82,7 @@ Na tela configuração o usuário podera programar o backup dos dados do sistema
 
 
  <img style="border-radius: 50%;" src="https://avatars3.githubusercontent.com/u/54003486?s=460&u=3822168fe9edd73a698d173cf681558822e7856c&v=4" width="100px;" alt=""/>
- <sub><b>Matheus Ramos Martinez</b></sub>>🚀
+ <sub><b>Matheus Ramos Martinez</b></sub>🚀
 
 Feito por Matheus Ramos Martinez 
 
