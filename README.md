@@ -3,7 +3,7 @@
 <p>Sistema de gerenciamento de vendas e produtos, que ajuda o varejista a organizar melhor suas vendas e produtos em uma interface atraente.
 (clique nas imagens para melhor resolução)</p>
 
-<a href="https://youtu.be/Dfp5mfXqrdk" target="_blank"> víde demostração</a>
+<a href="https://youtu.be/Dfp5mfXqrdk" target="_blank"> vídeo demostração</a>
 
 <h4> 
 	🚧  Versão: 🚀 Beta  🚧
